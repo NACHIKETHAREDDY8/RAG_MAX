@@ -1,21 +1,99 @@
-import config
-from logger import get_logger
+from src.ingestion.cleaner import clean_text
+from src.ingestion.loader import (
+    load_pdf,
+    generate_document_id,
+    get_file_metadata,
+)
+from src.ingestion.models import Document
+from src.ingestion.parser import parse_pdf
+from src.chunking.fixed import fixed_size_chunk
+from pathlib import Path
 
 
-logger = get_logger(__name__)
+def ingest_pdf(file_path: str) -> list[Document]:
+    pdf_path = load_pdf(file_path)
+    pages = parse_pdf(pdf_path)
+    documents = []
+
+    for page in pages:
+        cleaned_text = clean_text(page["text"])
+
+        if not cleaned_text:
+            continue
+
+        document = Document(
+            document_id=generate_document_id(
+                pdf_path,
+                page["page_number"]
+            ),
+            source=str(pdf_path),
+            filename=pdf_path.name,
+            page_number=page["page_number"],
+            text=cleaned_text,
+            metadata=get_file_metadata(pdf_path),
+        )
+        
+        documents.append(document)
+
+    return documents
 
 
 def main():
-    logger.info("Starting application")
+    documents_folder = Path("documents")
 
-    print("=" * 40)
-    print(f"Application: {config.APP_NAME}")
-    print(f"Environment: {config.ENVIRONMENT}")
-    print("Status: Running")
-    print("=" * 40)
+    pdf_files = list(documents_folder.glob("*.pdf"))
 
-    logger.info("Application started successfully")
+    for pdf_file in pdf_files:
+        print(f"Processing: {pdf_file.name}")
+        documents = ingest_pdf(str(pdf_file))
+        print(f"Extracted {len(documents)} pages")
+
+        for document in documents:
+            print("=" * 50)
+            print(f"Document ID: {document.document_id}")
+            print(f"Source: {document.source}")
+            print(f"Filename: {document.filename}")
+            print(f"Page: {document.page_number}")
+            print(f"Text: {document.text[:500]}")
+
+            # Phase 3: Fixed-size chunking
+            chunks = fixed_size_chunk(
+                text=document.text,
+                document_id=document.document_id,
+                metadata=document.metadata,
+                chunk_size=500,
+                overlap=50,
+            )
+
+            print(f"Total chunks: {len(chunks)}")
+
+            # Display first 5 chunks for testing
+            for chunk in chunks[:5]:
+                print("-" * 40)
+                print(f"Chunk ID: {chunk.chunk_id}")
+                print(f"Chunk Index: {chunk.chunk_index}")
+                print(f"Text Length: {len(chunk.text)}")
+                print(f"Text: {chunk.text[:200]}")
+                print(f"Metadata: {chunk.metadata}")
 
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
