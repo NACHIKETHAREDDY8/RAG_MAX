@@ -9,3 +9,4 @@ class Chunk:
     text: str
     chunk_index: int
     metadata: Dict[str, Any]
+    

@@ -1,2 +1,5 @@
 python-dotenv
 pypdf
+tiktoken
+openai
+numpy

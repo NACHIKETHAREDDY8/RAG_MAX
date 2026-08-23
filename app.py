@@ -4,6 +4,10 @@ from src.ingestion.loader import (
     generate_document_id,
     get_file_metadata,
 )
+from src.tokenization.tokenizer import (
+    count_tokens,
+    validate_chunk_tokens,
+)
 from src.ingestion.models import Document
 from src.ingestion.parser import parse_pdf
 from src.chunking.fixed import fixed_size_chunk
@@ -24,7 +28,7 @@ def ingest_pdf(file_path: str) -> list[Document]:
         document = Document(
             document_id=generate_document_id(
                 pdf_path,
-                page["page_number"]
+                page["page_number"],
             ),
             source=str(pdf_path),
             filename=pdf_path.name,
@@ -32,7 +36,7 @@ def ingest_pdf(file_path: str) -> list[Document]:
             text=cleaned_text,
             metadata=get_file_metadata(pdf_path),
         )
-        
+
         documents.append(document)
 
     return documents
@@ -45,7 +49,9 @@ def main():
 
     for pdf_file in pdf_files:
         print(f"Processing: {pdf_file.name}")
+
         documents = ingest_pdf(str(pdf_file))
+
         print(f"Extracted {len(documents)} pages")
 
         for document in documents:
@@ -68,32 +74,26 @@ def main():
             print(f"Total chunks: {len(chunks)}")
 
             # Display first 5 chunks for testing
+            MAX_CHUNK_TOKENS = 500
+
             for chunk in chunks[:5]:
+                token_count = count_tokens(chunk.text)
+
+                validation = validate_chunk_tokens(
+                    chunk.text,
+                    MAX_CHUNK_TOKENS,
+                )
+
                 print("-" * 40)
                 print(f"Chunk ID: {chunk.chunk_id}")
                 print(f"Chunk Index: {chunk.chunk_index}")
                 print(f"Text Length: {len(chunk.text)}")
+                print(f"Token Count: {token_count}")
+                print(f"Max Tokens: {MAX_CHUNK_TOKENS}")
+                print(f"Valid: {validation['valid']}")
                 print(f"Text: {chunk.text[:200]}")
                 print(f"Metadata: {chunk.metadata}")
 
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
