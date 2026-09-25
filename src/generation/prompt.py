@@ -4,7 +4,6 @@ import json
 
 from src.vector_store.models import SearchResult
 
-
 def format_sources(context: list[SearchResult]) -> list[str]:
 	"""Format existing source and page metadata for display."""
 	sources = []

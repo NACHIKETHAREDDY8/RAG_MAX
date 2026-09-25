@@ -28,3 +28,4 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
 
         embeddings = sorted(response.data, key=lambda item: item.index)
         return [item.embedding for item in embeddings]
+    

@@ -1,7 +1,6 @@
 from pathlib import Path
 import hashlib
 
-
 def load_pdf(file_path: str) -> Path:
     path = Path(file_path)
 
@@ -12,7 +11,6 @@ def load_pdf(file_path: str) -> Path:
         raise ValueError("Only PDF files are supported.")
 
     return path
-
 
 def generate_document_id(file_path: Path, page_number: int) -> str:
     file_bytes = file_path.read_bytes()

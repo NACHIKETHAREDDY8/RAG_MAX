@@ -4,7 +4,6 @@ from openai import OpenAI
 
 import config
 
-
 class OpenAILLM:
 	"""Generate answers with an OpenAI chat-completions model."""
 

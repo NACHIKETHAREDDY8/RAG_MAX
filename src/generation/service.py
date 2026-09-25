@@ -6,7 +6,6 @@ from src.generation.prompt import build_rag_prompt
 from src.vector_store.base import VectorStore
 from src.vector_store.models import SearchResult
 
-
 class RAGService:
 	"""Coordinate retrieval and grounded answer generation."""
 

@@ -20,7 +20,6 @@ def cosine_similarity(vector_a: list[float], vector_b: list[float]) -> float:
 
     return dot_product / (magnitude_a * magnitude_b)
 
-
 class EmbeddingService:
     """Coordinate embedding requests through an injected provider."""
 

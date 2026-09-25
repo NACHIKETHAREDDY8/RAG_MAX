@@ -3,3 +3,4 @@ pypdf
 tiktoken
 openai
 numpy
+faiss-cpu

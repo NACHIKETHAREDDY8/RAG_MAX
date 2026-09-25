@@ -58,7 +58,6 @@ class FAISSVectorStore(VectorStore):
             SearchResult(
                 chunk_id=self.records[index].chunk_id,
                 text=self.records[index].text,
-                embedding=self.records[index].embedding,
                 metadata=self.records[index].metadata,
                 score=float(score),
             )

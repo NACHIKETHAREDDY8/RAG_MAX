@@ -19,8 +19,16 @@ from src.generation.prompt import format_sources
 from src.generation.service import RAGService
 from src.vector_store.base import VectorStore
 from src.vector_store.faiss_store import FAISSVectorStore
-from src.vector_store.models import SearchResult, VectorRecord
+from src.vector_store.models import VectorRecord
 from pathlib import Path
+import sys
+
+
+# Console output may contain characters the terminal's default codepage
+# cannot encode (arrows, dashes), which would otherwise crash printing.
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+VECTOR_STORE_PATH = Path("vector_store.faiss")
 
 
 def ingest_pdf(file_path: str) -> list[Document]:
@@ -70,32 +78,31 @@ def index_chunks(
     vector_store.add_many(records)
 
 
-def query_chunks(
-    question: str,
-    embedding_service: EmbeddingService,
-    vector_store: VectorStore,
-    top_k: int = 5,
-) -> list[SearchResult]:
-    """Embed a question and return its most similar stored chunks."""
-    query_embedding = embedding_service.embed_query(question)
-    return vector_store.search(query_embedding, top_k=top_k)
+def load_vector_store(
+    path: Path = VECTOR_STORE_PATH,
+) -> FAISSVectorStore:
+    """Restore a saved index when both of its files exist, otherwise start empty."""
+    records_path = path.with_suffix(path.suffix + ".json")
+
+    if path.exists() and records_path.exists():
+        return FAISSVectorStore.load(path)
+
+    return FAISSVectorStore()
+
+def stored_document_ids(vector_store: FAISSVectorStore) -> set[str]:
+    """Return the document ids whose chunks are already stored."""
+    return {
+        record.chunk_id.rsplit("_chunk_", 1)[0]
+        for record in vector_store.records
+    }
 
 
 def create_rag_service() -> RAGService:
     """Create the application RAG service using the shared configuration."""
     embedding_service = EmbeddingService(OpenAIEmbeddingProvider())
-    vector_store = FAISSVectorStore()
+    vector_store = load_vector_store()
     llm = OpenAILLM()
     return RAGService(embedding_service, vector_store, llm)
-
-
-def answer_question(
-    question: str,
-    rag_service: RAGService,
-    top_k: int = 5,
-) -> str:
-    """Generate a grounded answer through the application RAG service."""
-    return rag_service.answer(question, top_k=top_k)
 
 
 def run_question_loop(rag_service: RAGService, top_k: int = 5) -> None:
@@ -107,7 +114,6 @@ def run_question_loop(rag_service: RAGService, top_k: int = 5) -> None:
 
         if question.lower() in {"exit", "quit"}:
             break
-
         if not question:
             continue
 
@@ -120,12 +126,20 @@ def run_question_loop(rag_service: RAGService, top_k: int = 5) -> None:
             for source in sources:
                 print(f"- {source}")
 
-
 def main():
     documents_folder = Path("documents")
 
     pdf_files = list(documents_folder.glob("*.pdf"))
     rag_service = create_rag_service()
+
+    indexed_ids = stored_document_ids(rag_service.vector_store)
+    newly_indexed = 0
+
+    if indexed_ids:
+        print(
+            f"Loaded {rag_service.vector_store.count()} stored chunks "
+            f"from {VECTOR_STORE_PATH}"
+        )
 
     for pdf_file in pdf_files:
         print(f"Processing: {pdf_file.name}")
@@ -135,6 +149,10 @@ def main():
         print(f"Extracted {len(documents)} pages")
 
         for document in documents:
+            if document.document_id in indexed_ids:
+                print(f"Already indexed, skipping page {document.page_number}")
+                continue
+
             print("=" * 50)
             print(f"Document ID: {document.document_id}")
             print(f"Source: {document.source}")
@@ -146,7 +164,11 @@ def main():
             chunks = fixed_size_chunk(
                 text=document.text,
                 document_id=document.document_id,
-                metadata=document.metadata,
+                metadata={
+                    **document.metadata,
+                    "source": document.filename,
+                    "page": document.page_number,
+                },
                 chunk_size=500,
                 overlap=50,
             )
@@ -155,6 +177,8 @@ def main():
                 rag_service.embedding_service,
                 rag_service.vector_store,
             )
+            newly_indexed += len(chunks)
+            indexed_ids.add(document.document_id)
 
             print(f"Total chunks: {len(chunks)}")
 
@@ -178,6 +202,13 @@ def main():
                 print(f"Valid: {validation['valid']}")
                 print(f"Text: {chunk.text[:200]}")
                 print(f"Metadata: {chunk.metadata}")
+
+    if newly_indexed:
+        rag_service.vector_store.save(VECTOR_STORE_PATH)
+        print(
+            f"Saved {rag_service.vector_store.count()} chunks "
+            f"to {VECTOR_STORE_PATH}"
+        )
 
     run_question_loop(rag_service)
 

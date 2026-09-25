@@ -1,7 +1,5 @@
 from pathlib import Path
-
 from pypdf import PdfReader
-
 
 def parse_pdf(file_path: Path) -> list[dict]:
     reader = PdfReader(file_path)
@@ -17,5 +15,4 @@ def parse_pdf(file_path: Path) -> list[dict]:
                 "text": text,
             }
         )
-
     return pages

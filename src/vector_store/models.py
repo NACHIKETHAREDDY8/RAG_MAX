@@ -13,6 +13,5 @@ class VectorRecord:
 class SearchResult:
     chunk_id: str
     text: str
-    embedding: list[float]
     metadata: dict[str, Any]
     score: float
