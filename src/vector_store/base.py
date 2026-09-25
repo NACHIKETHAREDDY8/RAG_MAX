@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from pathlib import Path
 
 from src.vector_store.models import SearchResult, VectorRecord
 
@@ -25,3 +26,11 @@ class VectorStore(ABC):
     @abstractmethod
     def count(self) -> int:
         """Return the number of stored vector records."""
+
+    @abstractmethod
+    def list_records(self) -> list[VectorRecord]:
+        """Return every stored vector record."""
+
+    @abstractmethod
+    def save(self, path: str | Path) -> None:
+        """Persist the stored records to a location."""

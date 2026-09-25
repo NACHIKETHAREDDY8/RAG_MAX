@@ -124,35 +124,33 @@ document.
 
 ```
 documents/*.pdf
-    ↓  load_pdf      validate the file
-    ↓  parse_pdf     pypdf extracts text, page by page
-    ↓  clean_text    normalise whitespace, drop junk glyphs
-    ↓  Document      one per page, with a content-hash id
-    ↓  fixed_size_chunk    500 characters, 50 overlapping
-    ↓  embed_chunks        OpenAI → 1,536 numbers per chunk
-    ↓  FAISS index         stored, searchable by meaning
-    ↓  save()              written to disk
+    ↓  ingest_pdf        validate, extract with pypdf, clean, one Document per page
+    ↓  IndexingService   skip already-indexed pages, 500-character chunks (50 overlap)
+    ↓  EmbeddingService  OpenAI → 1,536 numbers per chunk
+    ↓  Repository        stores chunks in the VectorStore (FAISS), saves to disk
 
 your question
-    ↓  embed_query         the same 1,536-dimension space
-    ↓  search(top_k=5)     5 closest chunks by cosine similarity
-    ↓  build_rag_prompt    "use only this context, invent nothing"
-    ↓  gpt-4o-mini         grounded answer + sources
+    ↓  RAGService
+    ↓  RetrievalService  embed the question → Repository → 5 closest chunks
+    ↓  GenerationService "use only this context, invent nothing" → gpt-4o-mini
+    ↓  answer + sources
 ```
 
 ## Project structure
 
 ```
-app.py                      entry point, orchestrates everything
-config.py                   reads .env
+app.py                      entry point: builds services, indexes, runs the question loop
+config.py                   all settings (reads .env)
 logger.py                   logging setup
 documents/                  put your PDFs here
 vector_store.faiss          saved index (git-ignored)
 vector_store.faiss.json     saved chunk text + metadata (git-ignored)
 
 src/
+  container.py   constructs and connects every service (the only place
+                 that names FAISS or OpenAI classes)
   ingestion/     PDF → clean text
-    loader.py      file validation, content-hash ids, file metadata
+    loader.py      file validation, content-hash ids, ingest_pdf
     parser.py      pypdf text extraction
     cleaner.py     whitespace normalisation
     models.py      Document
@@ -167,23 +165,42 @@ src/
     service.py     batching and validation
   vector_store/  storing and searching vectors
     base.py        VectorStore interface
-    faiss_store.py FAISS index, cosine similarity, save/load
+    faiss_store.py FAISS implementation, cosine similarity, save/load
     models.py      VectorRecord, SearchResult
+  repositories/  vector_store_repository.py — chunks in and out of any VectorStore
+  indexing/      service.py — Document → chunks → embeddings → repository
+  retrieval/     service.py — question → embedding → repository → top-k chunks
   generation/    retrieved chunks → answer
-    llm.py         OpenAI chat model
+    llm.py         LLM interface and OpenAI chat model
     prompt.py      prompt construction, source formatting
-    service.py     RAGService — ties retrieval and generation together
+    service.py     GenerationService — prompt → LLM
+  services/      rag_service.py — RAGService: retrieval → generation
+  tests/         pytest suite (no API calls; uses fake embeddings and LLM)
 ```
+
+To use a different vector database (for example Chroma), implement
+`VectorStore` from `src/vector_store/base.py` and construct it in
+`src/container.py`. Nothing else changes.
 
 ## Configuration
 
-| What | Where |
+Everything lives in `config.py`:
+
+| Setting | Meaning |
 |---|---|
-| Embedding model, vector size | `config.py` |
-| Chat model | `OpenAILLM.__init__` in `src/generation/llm.py` |
-| Chunk size and overlap | the `fixed_size_chunk(...)` call in `app.py` |
-| How many chunks to retrieve | `top_k` in `run_question_loop` in `app.py` |
-| Index file location | `VECTOR_STORE_PATH` in `app.py` |
+| `EMBEDDING_MODEL`, `EMBEDDING_DIMENSION` | embedding model and its vector size |
+| `CHAT_MODEL` | model that writes the answer |
+| `CHUNK_SIZE`, `CHUNK_OVERLAP` | chunk length and overlap, in characters |
+| `TOP_K` | how many chunks are retrieved per question |
+| `DOCUMENTS_DIR`, `VECTOR_STORE_PATH` | where PDFs are read from and the index is saved |
+
+## Tests
+
+```powershell
+python -m pytest
+```
+
+The tests run offline and cost nothing.
 
 ## Troubleshooting
 
@@ -206,9 +223,10 @@ The two index files don't match each other. Delete both and let them rebuild.
 
 ## Known limitations
 
-- No retry or error handling around the OpenAI calls — a dropped connection
-  ends the session.
+- No retry around the OpenAI calls. A failed question is logged and the loop
+  continues; a failure while indexing is logged, the chunks embedded so far
+  are saved, and the app exits.
 - Chunks are split at a fixed character count, so sentences can be cut in half.
   The 50-character overlap limits the damage but doesn't eliminate it.
-- The scripts in `src/tests/` are print-based demos, not assertions. They pass
-  under pytest regardless of whether the code is correct.
+- Chunks from a PDF that is later edited or deleted stay in the index. Delete
+  the index files to rebuild.

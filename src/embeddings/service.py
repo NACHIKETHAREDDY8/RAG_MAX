@@ -23,8 +23,13 @@ def cosine_similarity(vector_a: list[float], vector_b: list[float]) -> float:
 class EmbeddingService:
     """Coordinate embedding requests through an injected provider."""
 
-    def __init__(self, provider: EmbeddingProvider) -> None:
+    def __init__(
+        self,
+        provider: EmbeddingProvider,
+        dimension: int = config.EMBEDDING_DIMENSION,
+    ) -> None:
         self.provider = provider
+        self.dimension = dimension
 
     def embed_text(self, text: str) -> list[float]:
         """Generate one embedding vector for a text value."""
@@ -59,10 +64,9 @@ class EmbeddingService:
         """Generate one embedding vector for a search query."""
         return self.embed_text(query)
 
-    @staticmethod
-    def _validate_embedding(embedding: list[float]) -> None:
-        if len(embedding) != config.EMBEDDING_DIMENSION:
+    def _validate_embedding(self, embedding: list[float]) -> None:
+        if len(embedding) != self.dimension:
             raise ValueError(
-                f"Embedding vector must contain {config.EMBEDDING_DIMENSION} "
+                f"Embedding vector must contain {self.dimension} "
                 f"values, got {len(embedding)}."
             )

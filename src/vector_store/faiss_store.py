@@ -65,10 +65,13 @@ class FAISSVectorStore(VectorStore):
             if index >= 0
         ]
 
+    def list_records(self) -> list[VectorRecord]:
+        return list(self.records)
+
     def save(self, path: str | Path) -> None:
         """Persist the FAISS index and its chunk records."""
         index_path = Path(path)
-        records_path = index_path.with_suffix(index_path.suffix + ".json")
+        records_path = self._records_path(index_path)
 
         faiss.write_index(self.index, str(index_path))
         records_path.write_text(
@@ -85,7 +88,7 @@ class FAISSVectorStore(VectorStore):
     def load(cls, path: str | Path) -> "FAISSVectorStore":
         """Restore a FAISS index and its chunk records."""
         index_path = Path(path)
-        records_path = index_path.with_suffix(index_path.suffix + ".json")
+        records_path = cls._records_path(index_path)
 
         index = faiss.read_index(str(index_path))
         payload = json.loads(records_path.read_text(encoding="utf-8"))
@@ -106,8 +109,26 @@ class FAISSVectorStore(VectorStore):
 
         return store
 
+    @classmethod
+    def load_or_create(
+        cls,
+        path: str | Path,
+        dimension: int = config.EMBEDDING_DIMENSION,
+    ) -> "FAISSVectorStore":
+        """Restore a saved index when both of its files exist, otherwise start empty."""
+        index_path = Path(path)
+
+        if index_path.exists() and cls._records_path(index_path).exists():
+            return cls.load(index_path)
+
+        return cls(dimension=dimension)
+
     def count(self) -> int:
         return len(self.records)
+
+    @staticmethod
+    def _records_path(index_path: Path) -> Path:
+        return index_path.with_suffix(index_path.suffix + ".json")
 
     def _validate_vectors(self, vectors: np.ndarray) -> None:
         if vectors.ndim != 2 or vectors.shape[1] != self.dimension:

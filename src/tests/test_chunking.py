@@ -1,35 +1,44 @@
+import pytest
+
 from src.chunking.fixed import fixed_size_chunk
 
 
-text = (
+TEXT = (
     "Artificial intelligence is a field of computer science. "
     "Machine learning is a subset of artificial intelligence. "
     "Deep learning uses neural networks to learn patterns from data. "
     "Natural language processing helps computers understand human language."
 )
 
-document_id = "test_document"
 
-metadata = {
-    "filename": "test.pdf"
-}
+def test_chunks_overlap_and_cover_text():
+    chunks = fixed_size_chunk(
+        text=TEXT,
+        document_id="test_document",
+        metadata={"filename": "test.pdf"},
+        chunk_size=100,
+        overlap=20,
+    )
+
+    assert [chunk.chunk_id for chunk in chunks][:2] == [
+        "test_document_chunk_0",
+        "test_document_chunk_1",
+    ]
+    assert all(len(chunk.text) <= 100 for chunk in chunks)
+    assert chunks[1].text[:20] == chunks[0].text[-20:]
+    assert chunks[0].text + "".join(chunk.text[20:] for chunk in chunks[1:]) == TEXT
 
 
-chunks = fixed_size_chunk(
-    text=text,
-    document_id=document_id,
-    metadata=metadata,
-    chunk_size=100,
-    overlap=20,
-)
+def test_chunk_metadata_is_copied():
+    metadata = {"filename": "test.pdf"}
+
+    chunks = fixed_size_chunk(TEXT, "doc", metadata, chunk_size=100, overlap=20)
+    chunks[0].metadata["changed"] = True
+
+    assert "changed" not in metadata
+    assert "changed" not in chunks[1].metadata
 
 
-print(f"Total chunks: {len(chunks)}")
-
-for chunk in chunks:
-    print("\n--------------------")
-    print(f"Chunk ID: {chunk.chunk_id}")
-    print(f"Document ID: {chunk.document_id}")
-    print(f"Chunk Index: {chunk.chunk_index}")
-    print(f"Text: {chunk.text}")
-    print(f"Metadata: {chunk.metadata}")
+def test_overlap_must_be_smaller_than_chunk_size():
+    with pytest.raises(ValueError):
+        fixed_size_chunk(TEXT, "doc", {}, chunk_size=10, overlap=10)

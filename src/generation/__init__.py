@@ -1,7 +1,8 @@
-from src.generation.llm import OpenAILLM
-from src.generation.service import RAGService
+from src.generation.llm import LLM, OpenAILLM
+from src.generation.service import GenerationService
 
 __all__ = [
-	"OpenAILLM",
-	"RAGService",
+    "LLM",
+    "OpenAILLM",
+    "GenerationService",
 ]

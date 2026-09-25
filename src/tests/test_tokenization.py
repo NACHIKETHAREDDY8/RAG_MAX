@@ -5,35 +5,15 @@ from src.tokenization.tokenizer import (
 )
 
 
-def main():
-    text = "Artificial intelligence is changing software development."
-
-    character_count = len(text)
-    word_count = len(text.split())
-    token_count = count_tokens(text)
-
-    print("=" * 60)
-    print("TOKENIZATION COMPARISON")
-    print("=" * 60)
-
-    print("\nText:")
-    print(text)
-
-    print("\nCharacter count:")
-    print(character_count)
-
-    print("\nWord count:")
-    print(word_count)
-
-    print("\nToken count:")
-    print(token_count)
-
-    print("\nToken IDs:")
-    print(encode_text(text))
-
-    print("\nToken validation:")
-    print(validate_chunk_tokens(text, 500))
+TEXT = "Artificial intelligence is changing software development."
 
 
-if __name__ == "__main__":
-    main()
+def test_count_tokens_matches_encoding():
+    assert count_tokens(TEXT) == len(encode_text(TEXT)) > 0
+
+
+def test_validate_chunk_tokens():
+    token_count = count_tokens(TEXT)
+
+    assert validate_chunk_tokens(TEXT, token_count)["valid"] is True
+    assert validate_chunk_tokens(TEXT, token_count - 1)["valid"] is False
