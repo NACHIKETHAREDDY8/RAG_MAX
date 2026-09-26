@@ -1,3 +1,4 @@
+import config
 from src.chunking.fixed import fixed_size_chunk
 from src.chunking.models import Chunk
 from src.embeddings.service import EmbeddingService
@@ -30,28 +31,71 @@ class IndexingService:
 
         Returns 0 when the document is already indexed.
         """
-        if self.is_indexed(document.document_id):
+        tenant_id = self._tenant_id(document)
+
+        if self.is_indexed(document.document_id, tenant_id):
             return 0
 
         chunks = fixed_size_chunk(
             text=document.text,
             document_id=document.document_id,
-            metadata={
-                **document.metadata,
-                "source": document.filename,
-                "page": document.page_number,
-            },
+            # document_id is a content hash, so the same file indexed for two
+            # tenants needs the tenant in its chunk ids to keep them unique.
+            chunk_id_prefix=f"{tenant_id}:{document.document_id}",
+            metadata=self._chunk_metadata(document, tenant_id),
             chunk_size=self.chunk_size,
             overlap=self.chunk_overlap,
         )
         self.index_chunks(chunks)
         return len(chunks)
 
-    def is_indexed(self, document_id: str) -> bool:
-        return document_id in self.repository.document_ids()
+    def refresh_metadata(self, document: Document) -> int:
+        """Update an indexed document's stored metadata without re-embedding.
+
+        Picks up .meta.json edits and upgrades chunks indexed before metadata
+        filtering existed. Only chunks stored from this file are touched: an
+        identical file under another name keeps its own metadata. Returns how
+        many chunks changed.
+        """
+        tenant_id = self._tenant_id(document)
+        metadata = self._chunk_metadata(document, tenant_id)
+        changed = 0
+
+        for record in self.repository.document_records(document.document_id, tenant_id):
+            # Records indexed before Phase 9 stored the filename as "source".
+            stored_filename = record.metadata.get(
+                "filename", record.metadata.get("source")
+            )
+
+            if stored_filename != document.filename or record.metadata == metadata:
+                continue
+
+            self.repository.update_metadata(record.chunk_id, metadata)
+            changed += 1
+
+        return changed
+
+    def is_indexed(self, document_id: str, tenant_id: str | None = None) -> bool:
+        return document_id in self.repository.document_ids(tenant_id)
 
     def count(self) -> int:
         return self.repository.count()
 
     def save(self) -> None:
         self.repository.save()
+
+    @staticmethod
+    def _tenant_id(document: Document) -> str:
+        # Every stored chunk belongs to exactly one tenant, so tenant-filtered
+        # searches never see chunks with no owner.
+        return document.metadata.get("tenant_id", config.DEFAULT_TENANT_ID)
+
+    @staticmethod
+    def _chunk_metadata(document: Document, tenant_id: str) -> dict:
+        return {
+            **document.metadata,
+            "tenant_id": tenant_id,
+            "document_id": document.document_id,
+            "filename": document.filename,
+            "page": document.page_number,
+        }

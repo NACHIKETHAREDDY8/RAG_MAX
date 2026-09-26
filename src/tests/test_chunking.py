@@ -42,3 +42,12 @@ def test_chunk_metadata_is_copied():
 def test_overlap_must_be_smaller_than_chunk_size():
     with pytest.raises(ValueError):
         fixed_size_chunk(TEXT, "doc", {}, chunk_size=10, overlap=10)
+
+
+def test_fixed_size_chunk_uses_chunk_id_prefix():
+    chunks = fixed_size_chunk(
+        "abcdef", "doc", {}, chunk_size=4, overlap=0, chunk_id_prefix="t:doc"
+    )
+
+    assert [chunk.chunk_id for chunk in chunks] == ["t:doc_chunk_0", "t:doc_chunk_1"]
+    assert {chunk.document_id for chunk in chunks} == {"doc"}

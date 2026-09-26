@@ -18,13 +18,14 @@ def test_index_document_chunks_with_page_metadata(embedding_service, repository)
 
     assert added == 3
     record = repository.vector_store.list_records()[0]
-    assert record.chunk_id == "hash-1_chunk_0"
+    assert record.chunk_id == "default:hash-1_chunk_0"
     assert record.metadata == {
         "file_size": 10,
-        "file_type": ".pdf",
-        "source": "animals.pdf",
-        "page": 2,
+        "source_type": "pdf",
+        "tenant_id": "default",
         "document_id": "hash-1",
+        "filename": "animals.pdf",
+        "page": 2,
     }
 
 

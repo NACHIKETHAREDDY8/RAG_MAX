@@ -9,6 +9,7 @@ def fixed_size_chunk(
     metadata: dict,
     chunk_size: int = 500,
     overlap: int = 50,
+    chunk_id_prefix: str | None = None,
 ) -> List[Chunk]:
 
     if chunk_size <= 0:
@@ -19,6 +20,9 @@ def fixed_size_chunk(
 
     if overlap >= chunk_size:
         raise ValueError("overlap must be smaller than chunk_size")
+
+    if chunk_id_prefix is None:
+        chunk_id_prefix = document_id
 
     chunks = []
 
@@ -31,7 +35,7 @@ def fixed_size_chunk(
         end = start + chunk_size
         chunk_text = text[start:end]
         chunk = Chunk(
-            chunk_id=f"{document_id}_chunk_{chunk_index}",
+            chunk_id=f"{chunk_id_prefix}_chunk_{chunk_index}",
             document_id=document_id,
             text=chunk_text,
             chunk_index=chunk_index,

@@ -20,3 +20,6 @@ VECTOR_STORE_PATH = Path("vector_store.faiss")
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 50
 TOP_K = 5
+
+# Tenant assigned to documents whose metadata does not name one.
+DEFAULT_TENANT_ID = "default"

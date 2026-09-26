@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Any
 
 from src.chunking.models import Chunk
 from src.vector_store.base import VectorStore
@@ -36,19 +37,55 @@ class VectorStoreRepository:
         self,
         query_embedding: list[float],
         top_k: int = 5,
+        filters: dict[str, Any] | None = None,
     ) -> list[SearchResult]:
         """Return the stored chunks most similar to a query vector."""
-        return self.vector_store.search(query_embedding, top_k=top_k)
+        return self.vector_store.search(
+            query_embedding,
+            top_k=top_k,
+            filters=filters,
+        )
 
-    def document_ids(self) -> set[str]:
-        """Return the ids of documents whose chunks are already stored."""
+    def document_ids(self, tenant_id: str | None = None) -> set[str]:
+        """Return the ids of documents whose chunks are already stored.
+
+        With a tenant_id, only that tenant's documents are counted, so the
+        same file uploaded by two tenants is indexed once for each.
+        """
         return {
-            record.metadata.get("document_id")
-            # Records indexed before document_id was stored only carry it
-            # as the chunk id prefix.
-            or record.chunk_id.rsplit("_chunk_", 1)[0]
+            self._document_id(record)
             for record in self.vector_store.list_records()
+            if tenant_id is None or self._belongs_to(record, tenant_id)
         }
+
+    def document_records(self, document_id: str, tenant_id: str) -> list[VectorRecord]:
+        """Return a tenant's stored chunks of one document."""
+        return [
+            record
+            for record in self.vector_store.list_records()
+            if self._document_id(record) == document_id
+            and self._belongs_to(record, tenant_id)
+        ]
+
+    def update_metadata(self, chunk_id: str, metadata: dict[str, Any]) -> None:
+        """Replace a stored chunk's metadata without re-embedding it."""
+        self.vector_store.update_metadata(chunk_id, metadata)
+
+    @staticmethod
+    def _document_id(record: VectorRecord) -> str:
+        # Records indexed before document_id was stored only carry it as the
+        # chunk id prefix.
+        return (
+            record.metadata.get("document_id")
+            or record.chunk_id.rsplit("_chunk_", 1)[0]
+        )
+
+    @staticmethod
+    def _belongs_to(record: VectorRecord, tenant_id: str) -> bool:
+        # Records indexed before tenants existed have no owner yet. They count
+        # as indexed for any tenant, so the first tenant to index the document
+        # adopts them through a metadata refresh instead of re-embedding.
+        return record.metadata.get("tenant_id", tenant_id) == tenant_id
 
     def count(self) -> int:
         """Return the number of stored chunks."""

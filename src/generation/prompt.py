@@ -5,15 +5,17 @@ import json
 from src.vector_store.models import SearchResult
 
 def format_sources(context: list[SearchResult]) -> list[str]:
-    """Format existing source and page metadata for display."""
+    """Format each chunk's filename, page and document id for display."""
     sources = []
 
     for result in context:
         details = []
-        if "source" in result.metadata:
-            details.append(f"Source: {result.metadata['source']}")
-        if "page" in result.metadata:
-            details.append(f"Page: {result.metadata['page']}")
+        if result.filename:
+            details.append(f"Source: {result.filename}")
+        if result.page is not None:
+            details.append(f"Page: {result.page}")
+        if result.document_id:
+            details.append(f"Document: {result.document_id}")
 
         if details:
             sources.append(f"{result.chunk_id} | " + " | ".join(details))
@@ -44,7 +46,8 @@ def build_rag_prompt(question: str, context: list[SearchResult]) -> str:
         "You are a helpful question-answering assistant. Use only the provided "
         "context to answer the question. Do not use outside knowledge or invent "
         "facts. If the answer is not available in the context, say that the "
-        "information is unavailable in the provided context.\n\n"
+        "information is unavailable in the provided context. Cite the Source "
+        "and Page of the context each part of your answer comes from.\n\n"
         "Context:\n"
         f"{formatted_context}\n\n"
         "Question:\n"

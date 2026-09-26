@@ -44,7 +44,7 @@ def make_chunk(document_id: str, index: int, text: str) -> Chunk:
         document_id=document_id,
         text=text,
         chunk_index=index,
-        metadata={"source": "animals.pdf", "page": 1},
+        metadata={"filename": "animals.pdf", "page": 1},
     )
 
 
@@ -55,7 +55,7 @@ def make_document(text: str) -> Document:
         filename="animals.pdf",
         page_number=2,
         text=text,
-        metadata={"file_size": 10, "file_type": ".pdf"},
+        metadata={"file_size": 10, "source_type": "pdf"},
     )
 
 

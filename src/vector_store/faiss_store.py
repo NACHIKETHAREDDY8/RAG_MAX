@@ -2,9 +2,11 @@ import faiss
 import numpy as np
 from pathlib import Path
 import json
+from typing import Any
 
 import config
 from src.vector_store.base import VectorStore
+from src.vector_store.filters import matches_filters, validate_filters
 from src.vector_store.models import SearchResult, VectorRecord
 
 
@@ -39,9 +41,12 @@ class FAISSVectorStore(VectorStore):
         self,
         query_embedding: list[float],
         top_k: int = 5,
+        filters: dict[str, Any] | None = None,
     ) -> list[SearchResult]:
         if top_k <= 0:
             raise ValueError("top_k must be greater than 0")
+
+        validate_filters(filters)
 
         query = np.asarray([query_embedding], dtype=np.float32)
         self._validate_vectors(query)
@@ -51,8 +56,27 @@ class FAISSVectorStore(VectorStore):
 
         faiss.normalize_L2(query)
 
-        result_count = min(top_k, len(self.records))
-        scores, indices = self.index.search(query, result_count)
+        if filters:
+            # Filter before ranking: FAISS scores only the matching records,
+            # so a filtered search still returns up to top_k results.
+            candidate_ids = [
+                position
+                for position, record in enumerate(self.records)
+                if matches_filters(record.metadata, filters)
+            ]
+
+            if not candidate_ids:
+                return []
+
+            selector = faiss.IDSelectorBatch(candidate_ids)
+            scores, indices = self.index.search(
+                query,
+                min(top_k, len(candidate_ids)),
+                params=faiss.SearchParameters(sel=selector),
+            )
+        else:
+            result_count = min(top_k, len(self.records))
+            scores, indices = self.index.search(query, result_count)
 
         return [
             SearchResult(
@@ -64,6 +88,17 @@ class FAISSVectorStore(VectorStore):
             for score, index in zip(scores[0], indices[0])
             if index >= 0
         ]
+
+    def update_metadata(self, chunk_id: str, metadata: dict[str, Any]) -> None:
+        matches = [record for record in self.records if record.chunk_id == chunk_id]
+
+        if len(matches) != 1:
+            raise KeyError(
+                f"Expected one record with chunk id {chunk_id!r}, "
+                f"found {len(matches)}."
+            )
+
+        matches[0].metadata = dict(metadata)
 
     def list_records(self) -> list[VectorRecord]:
         return list(self.records)

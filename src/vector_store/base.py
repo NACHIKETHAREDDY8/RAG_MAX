@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from pathlib import Path
+from typing import Any
 
 from src.vector_store.models import SearchResult, VectorRecord
 
@@ -20,8 +21,17 @@ class VectorStore(ABC):
         self,
         query_embedding: list[float],
         top_k: int = 5,
+        filters: dict[str, Any] | None = None,
     ) -> list[SearchResult]:
-        """Return the records most similar to a query vector."""
+        """Return the records most similar to a query vector.
+
+        When filters are given, only records whose metadata equals every
+        filter value are searched, so top_k is filled from matches alone.
+        """
+
+    @abstractmethod
+    def update_metadata(self, chunk_id: str, metadata: dict[str, Any]) -> None:
+        """Replace one stored record's metadata, keeping its text and vector."""
 
     @abstractmethod
     def count(self) -> int:

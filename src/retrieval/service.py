@@ -1,3 +1,5 @@
+from typing import Any
+
 from src.embeddings.service import EmbeddingService
 from src.repositories.vector_store_repository import VectorStoreRepository
 from src.vector_store.models import SearchResult
@@ -16,8 +18,17 @@ class RetrievalService:
         self.repository = repository
         self.top_k = top_k
 
-    def retrieve(self, question: str, top_k: int | None = None) -> list[SearchResult]:
-        """Embed a question and return its most similar chunks."""
+    def retrieve(
+        self,
+        question: str,
+        top_k: int | None = None,
+        filters: dict[str, Any] | None = None,
+    ) -> list[SearchResult]:
+        """Embed a question and return its most similar chunks.
+
+        filters limits the search to chunks whose metadata matches every
+        value, e.g. {"tenant_id": "company_A", "department": "HR"}.
+        """
         if not question.strip():
             raise ValueError("Question must not be empty.")
 
@@ -25,4 +36,5 @@ class RetrievalService:
         return self.repository.search(
             query_embedding,
             top_k=self.top_k if top_k is None else top_k,
+            filters=filters,
         )

@@ -20,6 +20,7 @@ def index_documents(indexing_service: IndexingService) -> None:
         )
 
     newly_indexed = 0
+    refreshed = 0
 
     # Save whatever was embedded even if a later file fails, so paid
     # embedding work is not lost.
@@ -35,13 +36,19 @@ def index_documents(indexing_service: IndexingService) -> None:
                 added = indexing_service.index_document(document)
 
                 if not added:
-                    print(f"Already indexed, skipping page {document.page_number}")
+                    updated = indexing_service.refresh_metadata(document)
+                    refreshed += updated
+
+                    if updated:
+                        print(f"Updated metadata of page {document.page_number}")
+                    else:
+                        print(f"Already indexed, skipping page {document.page_number}")
                     continue
 
                 newly_indexed += added
                 print(f"Total chunks: {added}")
     finally:
-        if newly_indexed:
+        if newly_indexed or refreshed:
             indexing_service.save()
             print(
                 f"Saved {indexing_service.count()} chunks "
