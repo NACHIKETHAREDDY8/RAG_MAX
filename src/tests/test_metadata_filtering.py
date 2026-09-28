@@ -7,9 +7,10 @@ from src.chunking.models import Chunk
 from src.generation.prompt import format_sources
 from src.generation.service import GenerationService
 from src.indexing.service import IndexingService
-from src.ingestion import loader
-from src.ingestion.loader import get_document_metadata, ingest_pdf
-from src.ingestion.parser import parse_pdf_metadata
+from src.ingestion.errors import MetadataError
+from src.ingestion.models import ParsedDocument, ParsedSection
+from src.ingestion.parsers.pdf_parser import PdfParser
+from src.ingestion.pipeline import IngestionPipeline
 from src.retrieval.service import RetrievalService
 from src.services.rag_service import NO_CONTEXT_ANSWER, RAGService
 from src.tests.conftest import FakeLLM, make_document
@@ -175,6 +176,7 @@ def test_index_document_stores_all_metadata(embedding_service, repository):
         "category": "policy",
         "date": "2026-01-15",
         "author": "Jane Doe",
+        "version": 1,
         "tenant_id": "company_A",
         "document_id": "hash-1",
         "filename": "animals.pdf",
@@ -227,14 +229,18 @@ def test_parse_pdf_metadata_reads_author_and_date(tmp_path):
     path = tmp_path / "policy.pdf"
     write_pdf(path, **{"/Author": " Jane Doe ", "/CreationDate": "D:20260115093000Z"})
 
-    assert parse_pdf_metadata(path) == {"author": "Jane Doe", "date": "2026-01-15"}
+    assert PdfParser().parse(path).metadata == {
+        "author": "Jane Doe",
+        "date": "2026-01-15",
+        "page_count": 1,
+    }
 
 
 def test_parse_pdf_metadata_ignores_unparseable_date(tmp_path):
     path = tmp_path / "policy.pdf"
     write_pdf(path, **{"/CreationDate": "yesterday"})
 
-    assert parse_pdf_metadata(path) == {}
+    assert PdfParser().parse(path).metadata == {"page_count": 1}
 
 
 def test_sidecar_overrides_embedded_metadata(tmp_path):
@@ -245,7 +251,7 @@ def test_sidecar_overrides_embedded_metadata(tmp_path):
         encoding="utf-8",
     )
 
-    metadata = get_document_metadata(path)
+    metadata = IngestionPipeline().ingest(path).metadata
 
     assert metadata["author"] == "HR Team"
     assert metadata["date"] == "2026-01-15"
@@ -268,8 +274,8 @@ def test_invalid_sidecar_is_rejected(tmp_path, sidecar, message):
     write_pdf(path)
     (tmp_path / "policy.meta.json").write_text(json.dumps(sidecar), encoding="utf-8")
 
-    with pytest.raises(ValueError, match=message):
-        get_document_metadata(path)
+    with pytest.raises(MetadataError, match=message):
+        IngestionPipeline().ingest(path)
 
 
 def test_ingest_pdf_gives_every_page_the_document_metadata(tmp_path, monkeypatch):
@@ -279,15 +285,17 @@ def test_ingest_pdf_gives_every_page_the_document_metadata(tmp_path, monkeypatch
         json.dumps({"department": "HR", "category": "policy"}), encoding="utf-8"
     )
     monkeypatch.setattr(
-        loader,
-        "parse_pdf",
-        lambda _: [
-            {"page_number": 1, "text": "Leave policy"},
-            {"page_number": 2, "text": "More leave"},
-        ],
+        PdfParser,
+        "_parse",
+        lambda self, _: ParsedDocument(
+            [
+                ParsedSection("Leave policy", page_number=1),
+                ParsedSection("More leave", page_number=2),
+            ]
+        ),
     )
 
-    documents = ingest_pdf(str(path))
+    documents = IngestionPipeline().ingest(path).documents
 
     assert [document.page_number for document in documents] == [1, 2]
     for document in documents:

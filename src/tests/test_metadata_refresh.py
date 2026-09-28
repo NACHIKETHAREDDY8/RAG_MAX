@@ -4,7 +4,7 @@ import app
 import config
 from src.indexing.service import IndexingService
 from src.retrieval.service import RetrievalService
-from src.tests.conftest import make_document
+from src.tests.conftest import FakeIngestionPipeline, make_document
 from src.vector_store.faiss_store import FAISSVectorStore
 from src.vector_store.models import VectorRecord
 
@@ -41,6 +41,7 @@ def test_refresh_upgrades_legacy_chunks_without_embedding(
     assert stored_metadata(repository) == {
         "file_size": 10,
         "source_type": "pdf",
+        "version": 1,
         "tenant_id": "default",
         "document_id": "hash-1",
         "filename": "animals.pdf",
@@ -134,7 +135,7 @@ def one_pdf_folder(monkeypatch, tmp_path):
     documents_dir.mkdir()
     (documents_dir / "animals.pdf").write_bytes(b"")
     monkeypatch.setattr(config, "DOCUMENTS_DIR", documents_dir)
-    monkeypatch.setattr(app, "ingest_pdf", lambda _: [make_document("cat")])
+    return FakeIngestionPipeline(lambda _: [make_document("cat")])
 
 
 def test_index_documents_saves_refreshed_metadata(
@@ -142,7 +143,7 @@ def test_index_documents_saves_refreshed_metadata(
 ):
     add_legacy_record(repository, embedding_service)
 
-    app.index_documents(IndexingService(embedding_service, repository))
+    app.index_documents(IndexingService(embedding_service, repository), one_pdf_folder)
 
     assert "Updated metadata of page 2" in capsys.readouterr().out
     assert FAISSVectorStore.load(repository.path).list_records()[0].metadata[
@@ -156,7 +157,7 @@ def test_index_documents_does_not_save_when_nothing_changed(
     service = IndexingService(embedding_service, repository)
     service.index_document(make_document("cat"))
 
-    app.index_documents(service)
+    app.index_documents(service, one_pdf_folder)
 
     assert "Already indexed, skipping page 2" in capsys.readouterr().out
     assert not repository.path.exists()

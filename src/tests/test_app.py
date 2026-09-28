@@ -3,7 +3,7 @@ import pytest
 import app
 import config
 from src.indexing.service import IndexingService
-from src.tests.conftest import make_document
+from src.tests.conftest import FakeIngestionPipeline, make_document
 
 
 class FailingRAGService:
@@ -33,16 +33,17 @@ def test_index_documents_saves_completed_work_before_failing(
 
     calls = []
 
-    def fake_ingest_pdf(file_path):
-        calls.append(file_path)
+    def documents_for(path):
+        calls.append(path)
         if len(calls) == 2:
             raise ValueError("broken pdf")
         return [make_document("cat")]
 
-    monkeypatch.setattr(app, "ingest_pdf", fake_ingest_pdf)
-
     with pytest.raises(ValueError, match="broken pdf"):
-        app.index_documents(IndexingService(embedding_service, repository))
+        app.index_documents(
+            IndexingService(embedding_service, repository),
+            FakeIngestionPipeline(documents_for),
+        )
 
     assert repository.path.exists()
 

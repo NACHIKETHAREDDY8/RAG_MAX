@@ -2,6 +2,7 @@ import faiss
 import numpy as np
 from pathlib import Path
 import json
+from collections.abc import Collection
 from typing import Any
 
 import config
@@ -99,6 +100,27 @@ class FAISSVectorStore(VectorStore):
             )
 
         matches[0].metadata = dict(metadata)
+
+    def delete(self, chunk_ids: Collection[str]) -> int:
+        targets = set(chunk_ids)
+        positions = {
+            position
+            for position, record in enumerate(self.records)
+            if record.chunk_id in targets
+        }
+
+        if not positions:
+            return 0
+
+        # A flat index closes the gaps in order, so FAISS positions keep
+        # matching self.records once the same positions are dropped there.
+        self.index.remove_ids(faiss.IDSelectorBatch(sorted(positions)))
+        self.records = [
+            record
+            for position, record in enumerate(self.records)
+            if position not in positions
+        ]
+        return len(positions)
 
     def list_records(self) -> list[VectorRecord]:
         return list(self.records)

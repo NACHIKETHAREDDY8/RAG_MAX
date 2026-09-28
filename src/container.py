@@ -8,6 +8,7 @@ from src.embeddings.service import EmbeddingService
 from src.generation.llm import OpenAILLM
 from src.generation.service import GenerationService
 from src.indexing.service import IndexingService
+from src.ingestion.pipeline import IngestionPipeline
 from src.repositories.vector_store_repository import VectorStoreRepository
 from src.retrieval.service import RetrievalService
 from src.services.rag_service import RAGService
@@ -16,6 +17,7 @@ from src.vector_store.faiss_store import FAISSVectorStore
 
 @dataclass(frozen=True)
 class Container:
+    ingestion_pipeline: IngestionPipeline
     indexing_service: IndexingService
     rag_service: RAGService
 
@@ -50,4 +52,12 @@ def build_container() -> Container:
         ),
     )
 
-    return Container(indexing_service=indexing_service, rag_service=rag_service)
+    ingestion_pipeline = IngestionPipeline(
+        max_file_size_bytes=config.MAX_FILE_SIZE_MB * 1024 * 1024,
+    )
+
+    return Container(
+        ingestion_pipeline=ingestion_pipeline,
+        indexing_service=indexing_service,
+        rag_service=rag_service,
+    )

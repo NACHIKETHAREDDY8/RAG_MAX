@@ -17,6 +17,9 @@ CHAT_MODEL = "gpt-4o-mini"
 DOCUMENTS_DIR = Path("documents")
 VECTOR_STORE_PATH = Path("vector_store.faiss")
 
+# Larger files are rejected before they are read.
+MAX_FILE_SIZE_MB = 50
+
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 50
 TOP_K = 5

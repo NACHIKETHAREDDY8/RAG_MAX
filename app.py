@@ -5,14 +5,23 @@ from logger import get_logger
 from src.container import build_container
 from src.generation.prompt import format_sources
 from src.indexing.service import IndexingService
-from src.ingestion.loader import ingest_pdf
+from src.ingestion.detection import FileType
+from src.ingestion.errors import IngestionError
+from src.ingestion.pipeline import IngestionPipeline, find_documents
 from src.services.rag_service import RAGService
 
 logger = get_logger(__name__)
 
 
-def index_documents(indexing_service: IndexingService) -> None:
-    """Index every PDF in the documents folder that is not stored yet."""
+def index_documents(
+    indexing_service: IndexingService,
+    ingestion_pipeline: IngestionPipeline,
+) -> None:
+    """Index every supported file in the documents folder that is not stored yet.
+
+    Files that cannot be ingested (unsupported, invalid, unreadable) are
+    reported and skipped; other files are still indexed.
+    """
     if indexing_service.count():
         print(
             f"Loaded {indexing_service.count()} stored chunks "
@@ -25,14 +34,24 @@ def index_documents(indexing_service: IndexingService) -> None:
     # Save whatever was embedded even if a later file fails, so paid
     # embedding work is not lost.
     try:
-        for pdf_file in config.DOCUMENTS_DIR.glob("*.pdf"):
-            print(f"Processing: {pdf_file.name}")
+        for path in find_documents(config.DOCUMENTS_DIR):
+            print(f"Processing: {path.name}")
 
-            documents = ingest_pdf(str(pdf_file))
+            try:
+                result = ingestion_pipeline.ingest(path)
+            except IngestionError as error:
+                print(f"Skipped {path.name}: {error}")
+                continue
 
-            print(f"Extracted {len(documents)} pages")
+            if not result.documents:
+                print(f"No text found in {path.name}, skipping")
+                continue
 
-            for document in documents:
+            unit = "page" if result.file_type is FileType.PDF else "section"
+            count = len(result.documents)
+            print(f"Extracted {count} {unit}{'' if count == 1 else 's'}")
+
+            for document in result.documents:
                 added = indexing_service.index_document(document)
 
                 if not added:
@@ -40,9 +59,11 @@ def index_documents(indexing_service: IndexingService) -> None:
                     refreshed += updated
 
                     if updated:
-                        print(f"Updated metadata of page {document.page_number}")
+                        print(f"Updated metadata of {document.label}")
+                    elif duplicate_of := indexing_service.duplicate_of(document):
+                        print(f"Duplicate of {duplicate_of}, skipping {document.label}")
                     else:
-                        print(f"Already indexed, skipping page {document.page_number}")
+                        print(f"Already indexed, skipping {document.label}")
                     continue
 
                 newly_indexed += added
@@ -90,7 +111,7 @@ def main() -> None:
 
     try:
         container = build_container()
-        index_documents(container.indexing_service)
+        index_documents(container.indexing_service, container.ingestion_pipeline)
         run_question_loop(container.rag_service)
     except Exception:
         logger.exception("%s stopped because of an error.", config.APP_NAME)

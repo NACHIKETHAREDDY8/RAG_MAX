@@ -1,9 +1,14 @@
+from pathlib import Path
+from typing import Callable
+
 import pytest
 
 from src.chunking.models import Chunk
 from src.embeddings.base import EmbeddingProvider
 from src.embeddings.service import EmbeddingService
+from src.ingestion.detection import FileType
 from src.ingestion.models import Document
+from src.ingestion.pipeline import IngestionResult
 from src.repositories.vector_store_repository import VectorStoreRepository
 from src.vector_store.faiss_store import FAISSVectorStore
 
@@ -57,6 +62,22 @@ def make_document(text: str) -> Document:
         text=text,
         metadata={"file_size": 10, "source_type": "pdf"},
     )
+
+
+class FakeIngestionPipeline:
+    """Return the documents a function gives for each path, without reading files."""
+
+    def __init__(self, documents_for: Callable[[Path], list[Document]]) -> None:
+        self.documents_for = documents_for
+
+    def ingest(self, path: Path) -> IngestionResult:
+        return IngestionResult(
+            path=path,
+            file_type=FileType.PDF,
+            file_hash="hash",
+            metadata={},
+            documents=self.documents_for(path),
+        )
 
 
 @pytest.fixture

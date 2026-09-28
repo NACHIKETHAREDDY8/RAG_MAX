@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from collections.abc import Collection
 from pathlib import Path
 from typing import Any
 
@@ -32,6 +33,10 @@ class VectorStore(ABC):
     @abstractmethod
     def update_metadata(self, chunk_id: str, metadata: dict[str, Any]) -> None:
         """Replace one stored record's metadata, keeping its text and vector."""
+
+    @abstractmethod
+    def delete(self, chunk_ids: Collection[str]) -> int:
+        """Remove the records with these chunk ids and return how many were removed."""
 
     @abstractmethod
     def count(self) -> int:

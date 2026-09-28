@@ -53,7 +53,7 @@ class VectorStoreRepository:
         same file uploaded by two tenants is indexed once for each.
         """
         return {
-            self._document_id(record)
+            self.document_id_of(record)
             for record in self.vector_store.list_records()
             if tenant_id is None or self._belongs_to(record, tenant_id)
         }
@@ -63,16 +63,33 @@ class VectorStoreRepository:
         return [
             record
             for record in self.vector_store.list_records()
-            if self._document_id(record) == document_id
+            if self.document_id_of(record) == document_id
             and self._belongs_to(record, tenant_id)
+        ]
+
+    def file_records(self, filename: str, tenant_id: str) -> list[VectorRecord]:
+        """Return a tenant's stored chunks of every version of a file."""
+        return [
+            record
+            for record in self.vector_store.list_records()
+            if self.filename_of(record) == filename and self._belongs_to(record, tenant_id)
         ]
 
     def update_metadata(self, chunk_id: str, metadata: dict[str, Any]) -> None:
         """Replace a stored chunk's metadata without re-embedding it."""
         self.vector_store.update_metadata(chunk_id, metadata)
 
+    def delete_chunks(self, chunk_ids: list[str]) -> int:
+        """Remove stored chunks and return how many were removed."""
+        return self.vector_store.delete(chunk_ids)
+
     @staticmethod
-    def _document_id(record: VectorRecord) -> str:
+    def filename_of(record: VectorRecord) -> str | None:
+        # Records indexed before Phase 9 stored the filename as "source".
+        return record.metadata.get("filename", record.metadata.get("source"))
+
+    @staticmethod
+    def document_id_of(record: VectorRecord) -> str:
         # Records indexed before document_id was stored only carry it as the
         # chunk id prefix.
         return (

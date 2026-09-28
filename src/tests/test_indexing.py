@@ -22,6 +22,7 @@ def test_index_document_chunks_with_page_metadata(embedding_service, repository)
     assert record.metadata == {
         "file_size": 10,
         "source_type": "pdf",
+        "version": 1,
         "tenant_id": "default",
         "document_id": "hash-1",
         "filename": "animals.pdf",
