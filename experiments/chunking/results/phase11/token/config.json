@@ -1,0 +1,9 @@
+{
+  "label": "token",
+  "strategy": "token",
+  "params": {
+    "max_tokens": 110,
+    "overlap_tokens": 12
+  },
+  "expand_context": false
+}

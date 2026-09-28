@@ -27,7 +27,7 @@ class VectorStoreRepository:
                 chunk_id=chunk.chunk_id,
                 text=chunk.text,
                 embedding=embedding,
-                metadata={**chunk.metadata, "document_id": chunk.document_id},
+                metadata=chunk.stored_metadata(),
             )
             for chunk, embedding in zip(chunks, embeddings)
         ]

@@ -1,0 +1,308 @@
+{
+  "description": "Questions for the Phase 11 chunking experiment. Each evidence passage is copied exactly from the document's ingested text; together a question's passages are everything a complete answer needs.",
+  "questions": [
+    {
+      "id": "h1",
+      "question": "How many days of paid annual leave do full-time employees get, and how many unused days can be carried over?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "Full-time employees receive 25 days of paid annual leave per calendar year, plus public holidays.",
+        "Up to five unused days can be carried over into the next year, but carried-over days expire on 31 March."
+      ]
+    },
+    {
+      "id": "h2",
+      "question": "When do I need a doctor's note for sick leave?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "For absences longer than two consecutive days, a doctor's note must be uploaded to the HR portal."
+      ]
+    },
+    {
+      "id": "h3",
+      "question": "How many paid days of parental leave are there, and who approves it?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "Parental leave | 90 | People Operations"
+      ]
+    },
+    {
+      "id": "h4",
+      "question": "What is the hotel reimbursement limit per night in Europe and in North America?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "Hotel costs are reimbursed up to €180 per night in Europe and up to $220 per night in North America."
+      ]
+    },
+    {
+      "id": "h5",
+      "question": "What should I do if the VPN status says degraded?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "If nwvpn status reports \"degraded\", switch to the backup region with --region eu-west and contact the IT helpdesk at extension 4400."
+      ]
+    },
+    {
+      "id": "h6",
+      "question": "How many days a week can I work remotely, and what does a fully remote arrangement require?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "Employees may work remotely up to three days per week.",
+        "Fully remote arrangements require written approval from both your manager and the People Operations team, and they are reviewed every six months."
+      ]
+    },
+    {
+      "id": "h7",
+      "question": "Which commands do I run to log in and connect to the VPN with the staff profile?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "nwvpn login --sso\nnwvpn connect --region eu-central --profile staff"
+      ]
+    },
+    {
+      "id": "h8",
+      "question": "How big is the annual learning budget and does unused budget roll over?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "Every employee has an annual learning budget of €1,500 that can be spent on courses, conferences and books.",
+        "Budget that is not used by 31 December does not roll over."
+      ]
+    },
+    {
+      "id": "h9",
+      "question": "How quickly must a lost laptop be reported, and to whom?",
+      "document": "employee_handbook.md",
+      "evidence": [
+        "Lost or stolen devices must be reported to security@northwind.example within one hour."
+      ]
+    },
+    {
+      "id": "t1",
+      "question": "What was revenue in Q3 and what drove the growth?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "Revenue for the third quarter came in at 4.2 million euros, which is up 12 percent compared with the same quarter last year.",
+        "Most of that growth came from enterprise renewals, where we renewed 31 of our 33 large accounts."
+      ]
+    },
+    {
+      "id": "t2",
+      "question": "Why did the small business segment shrink?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "The small business segment was the weak spot, it actually shrank by 3 percent.",
+        "Our read is that the price increase we introduced in July pushed some of the smaller customers to cheaper competitors."
+      ]
+    },
+    {
+      "id": "t3",
+      "question": "Which roles does the hiring freeze cover, and which roles are still being hired?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "As of this week there is a freeze on all non-engineering roles until February.",
+        "Engineering is the exception, we still plan to hire six backend engineers this quarter because the platform roadmap depends on them."
+      ]
+    },
+    {
+      "id": "t4",
+      "question": "Why is the billing service migration blocked and what is the workaround?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "The billing service is blocked.",
+        "The problem is licensing, our Oracle database license does not allow us to run it on the cloud provider's hardware without buying a much more expensive agreement.",
+        "The workaround the platform team proposed is to move billing to PostgreSQL, and they estimate that will take six weeks, which is tight but still fits the November deadline."
+      ]
+    },
+    {
+      "id": "t5",
+      "question": "Why did churn go up in APAC and what is the plan to fix it?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "APAC churn went up to 9 percent this quarter, from 5 percent last quarter, which is well above every other region.",
+        "When we interviewed the customers who left, the main reason they gave was the lack of support in Japanese, several of them said tickets took days to resolve because of translation.",
+        "The plan is to hire two Japanese-speaking support agents in Tokyo and to localise the onboarding flow into Japanese by the end of Q1."
+      ]
+    },
+    {
+      "id": "t6",
+      "question": "What was the most serious security audit finding and what was decided about it?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old.",
+        "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days."
+      ]
+    },
+    {
+      "id": "t7",
+      "question": "After the change announced in the Q3 review, where and when is the company offsite?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "And the company offsite is moving from Lisbon to Porto, it will now be on the 12th to the 14th of March."
+      ]
+    },
+    {
+      "id": "t8",
+      "question": "How much does cancelling the recruiting agency save, and who takes over recruiting?",
+      "document": "quarterly_review_transcript.txt",
+      "evidence": [
+        "We also cancelled the contract with the TalentBridge recruiting agency, which saves about 80 thousand euros a year, and recruiting will be handled in-house by Dana's team from now on."
+      ]
+    },
+    {
+      "id": "p1",
+      "question": "What caused the checkout outage?",
+      "document": "incident_postmortem.txt",
+      "evidence": [
+        "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+        "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20."
+      ]
+    },
+    {
+      "id": "p2",
+      "question": "Why did the on-call engineer find out about the checkout outage so late?",
+      "document": "incident_postmortem.txt",
+      "evidence": [
+        "The first alert, for payment latency above five seconds, fired at 13:09.",
+        "It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged.",
+        "The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel."
+      ]
+    },
+    {
+      "id": "p3",
+      "question": "Why did the checkout service stay down instead of degrading gracefully?",
+      "document": "incident_postmortem.txt",
+      "evidence": [
+        "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts.",
+        "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly.",
+        "This retry storm is why the service stayed down instead of degrading gracefully."
+      ]
+    },
+    {
+      "id": "p4",
+      "question": "Why were some customers charged twice, and how was it resolved?",
+      "document": "incident_postmortem.txt",
+      "evidence": [
+        "In addition, 2,100 customers were charged twice: their first payment succeeded at the payment provider after the client had already timed out and retried.",
+        "All duplicate charges were refunded by 16 August, and affected customers received a 15 percent discount code."
+      ]
+    },
+    {
+      "id": "p5",
+      "question": "What was the estimated lost revenue from the checkout outage?",
+      "document": "incident_postmortem.txt",
+      "evidence": [
+        "Based on the average basket value for that time of day, the estimated lost revenue is €310,000."
+      ]
+    },
+    {
+      "id": "p6",
+      "question": "Who owns the action item to prevent double charges, and when is it due?",
+      "document": "incident_postmortem.txt",
+      "evidence": [
+        "Send an idempotency key with every payment request so that a retried payment can never be charged twice. Owner: Lena Hoffmann, due 30 September."
+      ]
+    },
+    {
+      "id": "p7",
+      "question": "How long was checkout unavailable?",
+      "document": "incident_postmortem.txt",
+      "evidence": [
+        "On 14 August 2026 the checkout service was unavailable for 47 minutes, from 13:02 to 13:49 UTC."
+      ]
+    },
+    {
+      "id": "c1",
+      "question": "Who is the office manager of the Zürich office?",
+      "document": "office_directory.csv",
+      "evidence": [
+        "office: Zürich Research | city: Zürich | country: Switzerland | employees: 40 | opened: 2020 | office_manager: Lukas Brunner | time_zone: CET | desk_booking: optional"
+      ]
+    },
+    {
+      "id": "c2",
+      "question": "How many employees work in the São Paulo office?",
+      "document": "office_directory.csv",
+      "evidence": [
+        "office: São Paulo Support | city: São Paulo | country: Brazil | employees: 55 | opened: 2021 | office_manager: Camila Rocha | time_zone: BRT | desk_booking: optional"
+      ]
+    },
+    {
+      "id": "c3",
+      "question": "Which office is in the JST time zone, and is desk booking required there?",
+      "document": "office_directory.csv",
+      "evidence": [
+        "office: Tokyo Support | city: Tokyo | country: Japan | employees: 12 | opened: 2023 | office_manager: Haruto Sato | time_zone: JST | desk_booking: required"
+      ]
+    },
+    {
+      "id": "c4",
+      "question": "When did the Berlin Engineering office open?",
+      "document": "office_directory.csv",
+      "evidence": [
+        "office: Berlin Engineering | city: Berlin | country: Germany | employees: 130 | opened: 2017 | office_manager: Jonas Keller | time_zone: CET | desk_booking: optional"
+      ]
+    },
+    {
+      "id": "r1",
+      "question": "Why was the TalentBridge recruiting contract renewed in Q2?",
+      "document": "q2_business_review_transcript.txt",
+      "evidence": [
+        "We renewed the contract with the TalentBridge recruiting agency for another year, because they filled most of the senior roles and our own recruiters are fully booked."
+      ]
+    },
+    {
+      "id": "r2",
+      "question": "What was APAC churn in Q2, and who handled first-line support in Japanese at that time?",
+      "document": "q2_business_review_transcript.txt",
+      "evidence": [
+        "Churn in Asia Pacific was 5 percent, in line with Europe and North America, and net revenue retention in APAC was 104 percent.",
+        "The Japanese reseller partnership is working well and the reseller handles first-line support for their accounts in Japanese."
+      ]
+    },
+    {
+      "id": "s1",
+      "question": "Why did the search outage take so long to diagnose?",
+      "document": "search_outage_postmortem.txt",
+      "evidence": [
+        "The engineer first suspected a network problem, because the errors looked like connection timeouts between the search service and the cluster.",
+        "It took until 10:05 to see that the two nodes had switched their indices to read-only mode to protect themselves.",
+        "The cluster's protective read-only mode worked as designed, but the search service turned the resulting errors into empty result pages instead of an error message, which delayed diagnosis."
+      ]
+    },
+    {
+      "id": "s2",
+      "question": "What filled up the disks on the search cluster nodes?",
+      "document": "search_outage_postmortem.txt",
+      "evidence": [
+        "At 09:15 UTC the nightly re-indexing job, which had been delayed by a slow upstream export, was still running when morning traffic started.",
+        "Its temporary files filled the data disk on two nodes."
+      ]
+    },
+    {
+      "id": "e1",
+      "question": "Who can approve a production deployment?",
+      "document": "engineering_onboarding.md",
+      "evidence": [
+        "Production | Manually from the pipeline | Team lead or on-call engineer"
+      ]
+    },
+    {
+      "id": "e2",
+      "question": "How much is the on-call allowance for engineers?",
+      "document": "engineering_onboarding.md",
+      "evidence": [
+        "you are paid an on-call allowance of €250 per week plus €50 for every night you are paged"
+      ]
+    },
+    {
+      "id": "e3",
+      "question": "Which VPN profile do engineers use to reach staging, and how long does its session last?",
+      "document": "engineering_onboarding.md",
+      "evidence": [
+        "Engineers use the same VPN client as everyone else but connect with a dedicated profile that also routes traffic to the staging network:",
+        "nwvpn connect --region eu-central --profile engineering",
+        "The engineering profile keeps a session for 12 hours before asking you to log in again."
+      ]
+    }
+  ]
+}

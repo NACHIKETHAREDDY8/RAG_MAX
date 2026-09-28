@@ -1,0 +1,10 @@
+{
+  "label": "parent_child",
+  "strategy": "parent_child",
+  "params": {
+    "parent_size": 2000,
+    "child_size": 400,
+    "child_overlap": 0
+  },
+  "expand_context": true
+}

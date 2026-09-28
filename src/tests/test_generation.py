@@ -32,6 +32,32 @@ def test_build_rag_prompt_contains_question_and_context():
     assert prompt.endswith("Question:\nDo cats sleep?\n\nAnswer:\n")
 
 
+def test_prompt_leaves_out_chunking_bookkeeping():
+    parent = "Cats sleep a lot. They also purr."
+    result = SearchResult(
+        chunk_id="doc_chunk_0",
+        text=parent,
+        metadata={
+            "filename": "animals.pdf",
+            "section_path": "Cats > Sleep",
+            "chunk_strategy": "parent_child",
+            "chunk_start": 0,
+            "chunk_end": 17,
+            "parent_id": "doc_parent_0",
+            "context_id": "doc_parent_0",
+            "matched_text": "Cats sleep a lot.",
+        },
+        score=0.9,
+    )
+
+    prompt = build_rag_prompt("Do cats sleep?", [result])
+
+    assert prompt.count("Cats sleep a lot.") == 1
+    assert '"section_path": "Cats > Sleep"' in prompt
+    for key in ("chunk_start", "parent_id", "context_id", "matched_text", "chunk_strategy"):
+        assert key not in prompt
+
+
 def test_generation_service_sends_grounded_prompt_to_llm():
     llm = FakeLLM("They do.")
 

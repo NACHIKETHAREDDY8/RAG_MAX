@@ -1,0 +1,2802 @@
+[
+  {
+    "id": "h1",
+    "question": "How many days of paid annual leave do full-time employees get, and how many unused days can be carried over?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_2",
+        "score": 0.746525,
+        "filename": "employee_handbook.md",
+        "start": 858,
+        "end": 1304,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_3",
+        "score": 0.594878,
+        "filename": "employee_handbook.md",
+        "start": 1277,
+        "end": 1758,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_1",
+        "score": 0.502892,
+        "filename": "employee_handbook.md",
+        "start": 384,
+        "end": 874,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_4",
+        "score": 0.461275,
+        "filename": "employee_handbook.md",
+        "start": 1661,
+        "end": 2160,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_7",
+        "score": 0.325172,
+        "filename": "employee_handbook.md",
+        "start": 2848,
+        "end": 3279,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 446
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1417
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2347
+      }
+    }
+  },
+  {
+    "id": "h2",
+    "question": "When do I need a doctor's note for sick leave?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_4",
+        "score": 0.563971,
+        "filename": "employee_handbook.md",
+        "start": 1661,
+        "end": 2160,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_3",
+        "score": 0.555236,
+        "filename": "employee_handbook.md",
+        "start": 1277,
+        "end": 1758,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_2",
+        "score": 0.385243,
+        "filename": "employee_handbook.md",
+        "start": 858,
+        "end": 1304,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_1",
+        "score": 0.324882,
+        "filename": "employee_handbook.md",
+        "start": 384,
+        "end": 874,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_7",
+        "score": 0.209022,
+        "filename": "employee_handbook.md",
+        "start": 2848,
+        "end": 3279,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 499
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1426
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2347
+      }
+    }
+  },
+  {
+    "id": "h3",
+    "question": "How many paid days of parental leave are there, and who approves it?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_3",
+        "score": 0.557681,
+        "filename": "employee_handbook.md",
+        "start": 1277,
+        "end": 1758,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_2",
+        "score": 0.536637,
+        "filename": "employee_handbook.md",
+        "start": 858,
+        "end": 1304,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_1",
+        "score": 0.387157,
+        "filename": "employee_handbook.md",
+        "start": 384,
+        "end": 874,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_4",
+        "score": 0.369407,
+        "filename": "employee_handbook.md",
+        "start": 1661,
+        "end": 2160,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_4",
+        "score": 0.318403,
+        "filename": "engineering_onboarding.md",
+        "start": 1287,
+        "end": 1742,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 481
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1417
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2371
+      }
+    }
+  },
+  {
+    "id": "h4",
+    "question": "What is the hotel reimbursement limit per night in Europe and in North America?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_5",
+        "score": 0.596604,
+        "filename": "employee_handbook.md",
+        "start": 2060,
+        "end": 2550,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_4",
+        "score": 0.392104,
+        "filename": "employee_handbook.md",
+        "start": 1661,
+        "end": 2160,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_8",
+        "score": 0.380756,
+        "filename": "employee_handbook.md",
+        "start": 3221,
+        "end": 3397,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_7",
+        "score": 0.252036,
+        "filename": "employee_handbook.md",
+        "start": 2848,
+        "end": 3279,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+        "score": 0.231537,
+        "filename": "incident_postmortem.txt",
+        "start": 422,
+        "end": 876,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 490
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1165
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2050
+      }
+    }
+  },
+  {
+    "id": "h5",
+    "question": "What should I do if the VPN status says degraded?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_6",
+        "score": 0.444443,
+        "filename": "employee_handbook.md",
+        "start": 2472,
+        "end": 2935,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_3",
+        "score": 0.389773,
+        "filename": "engineering_onboarding.md",
+        "start": 948,
+        "end": 1403,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.336957,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_2",
+        "score": 0.279657,
+        "filename": "engineering_onboarding.md",
+        "start": 587,
+        "end": 1084,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_6",
+        "score": 0.27866,
+        "filename": "engineering_onboarding.md",
+        "start": 2045,
+        "end": 2467,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 463
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1392
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2311
+      }
+    }
+  },
+  {
+    "id": "h6",
+    "question": "How many days a week can I work remotely, and what does a fully remote arrangement require?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_1",
+        "score": 0.669257,
+        "filename": "employee_handbook.md",
+        "start": 384,
+        "end": 874,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_0",
+        "score": 0.435127,
+        "filename": "employee_handbook.md",
+        "start": 0,
+        "end": 491,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_2",
+        "score": 0.395539,
+        "filename": "employee_handbook.md",
+        "start": 858,
+        "end": 1304,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_4",
+        "score": 0.376517,
+        "filename": "employee_handbook.md",
+        "start": 1661,
+        "end": 2160,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_3",
+        "score": 0.373697,
+        "filename": "employee_handbook.md",
+        "start": 1277,
+        "end": 1758,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 490
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1427
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2407
+      }
+    }
+  },
+  {
+    "id": "h7",
+    "question": "Which commands do I run to log in and connect to the VPN with the staff profile?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_6",
+        "score": 0.627969,
+        "filename": "employee_handbook.md",
+        "start": 2472,
+        "end": 2935,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_3",
+        "score": 0.519307,
+        "filename": "engineering_onboarding.md",
+        "start": 948,
+        "end": 1403,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_2",
+        "score": 0.435858,
+        "filename": "engineering_onboarding.md",
+        "start": 587,
+        "end": 1084,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_7",
+        "score": 0.3319,
+        "filename": "employee_handbook.md",
+        "start": 2848,
+        "end": 3279,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_5",
+        "score": 0.328221,
+        "filename": "employee_handbook.md",
+        "start": 2060,
+        "end": 2550,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 463
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1415
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2336
+      }
+    }
+  },
+  {
+    "id": "h8",
+    "question": "How big is the annual learning budget and does unused budget roll over?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_8",
+        "score": 0.515493,
+        "filename": "employee_handbook.md",
+        "start": 3221,
+        "end": 3397,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_7",
+        "score": 0.463811,
+        "filename": "employee_handbook.md",
+        "start": 2848,
+        "end": 3279,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_2",
+        "score": 0.338116,
+        "filename": "employee_handbook.md",
+        "start": 858,
+        "end": 1304,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_9",
+        "score": 0.311592,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2774,
+        "end": 3226,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_2",
+        "score": 0.306623,
+        "filename": "engineering_onboarding.md",
+        "start": 587,
+        "end": 1084,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 0.5,
+        "completeness": 0.3515151515151515,
+        "complete_answer": 0.0,
+        "context_chars": 176
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1053
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2002
+      }
+    }
+  },
+  {
+    "id": "h9",
+    "question": "How quickly must a lost laptop be reported, and to whom?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_6",
+        "score": 0.394316,
+        "filename": "engineering_onboarding.md",
+        "start": 2045,
+        "end": 2467,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_7",
+        "score": 0.318181,
+        "filename": "employee_handbook.md",
+        "start": 2848,
+        "end": 3279,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_5",
+        "score": 0.262071,
+        "filename": "employee_handbook.md",
+        "start": 2060,
+        "end": 2550,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.260204,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_2",
+        "score": 0.259945,
+        "filename": "engineering_onboarding.md",
+        "start": 587,
+        "end": 1084,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 0.0,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "evidence_recall": 0.0,
+        "completeness": 0.0,
+        "complete_answer": 0.0,
+        "context_chars": 422
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1343
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2314
+      }
+    }
+  },
+  {
+    "id": "t1",
+    "question": "What was revenue in Q3 and what drove the growth?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+        "score": 0.660062,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 0,
+        "end": 406,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+        "score": 0.613781,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 0,
+        "end": 466,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+        "score": 0.52699,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 327,
+        "end": 801,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_1",
+        "score": 0.469305,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 328,
+        "end": 779,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_2",
+        "score": 0.399626,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 712,
+        "end": 1160,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 406
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1346
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2245
+      }
+    }
+  },
+  {
+    "id": "t2",
+    "question": "Why did the small business segment shrink?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_1",
+        "score": 0.601415,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 328,
+        "end": 779,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+        "score": 0.555108,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 327,
+        "end": 801,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+        "score": 0.373418,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 0,
+        "end": 406,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+        "score": 0.349563,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 0,
+        "end": 466,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+        "score": 0.254926,
+        "filename": "incident_postmortem.txt",
+        "start": 2022,
+        "end": 2463,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 451
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1331
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2238
+      }
+    }
+  },
+  {
+    "id": "t3",
+    "question": "Which roles does the hiring freeze cover, and which roles are still being hired?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_2",
+        "score": 0.627689,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 712,
+        "end": 1160,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+        "score": 0.627255,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 701,
+        "end": 1096,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_1",
+        "score": 0.398623,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 328,
+        "end": 779,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_3",
+        "score": 0.394382,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 913,
+        "end": 1369,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+        "score": 0.312158,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 327,
+        "end": 801,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 0.0,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "evidence_recall": 0.0,
+        "completeness": 0.0,
+        "complete_answer": 0.0,
+        "context_chars": 448
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1294
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2224
+      }
+    }
+  },
+  {
+    "id": "t4",
+    "question": "Why is the billing service migration blocked and what is the workaround?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_5",
+        "score": 0.522696,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 1485,
+        "end": 1956,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_4",
+        "score": 0.479466,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 1246,
+        "end": 1647,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_3",
+        "score": 0.436436,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 1139,
+        "end": 1543,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+        "score": 0.412013,
+        "filename": "incident_postmortem.txt",
+        "start": 2022,
+        "end": 2463,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+        "score": 0.389391,
+        "filename": "incident_postmortem.txt",
+        "start": 0,
+        "end": 430,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 0.6666666666666666,
+        "completeness": 0.915068493150685,
+        "complete_answer": 0.0,
+        "context_chars": 471
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1276
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2147
+      }
+    }
+  },
+  {
+    "id": "t5",
+    "question": "Why did churn go up in APAC and what is the plan to fix it?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_6",
+        "score": 0.642788,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 1908,
+        "end": 2386,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_4",
+        "score": 0.525429,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 1522,
+        "end": 1972,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_7",
+        "score": 0.422339,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2253,
+        "end": 2635,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_5",
+        "score": 0.389427,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 1485,
+        "end": 1956,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.377483,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 478
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1310
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2255
+      }
+    }
+  },
+  {
+    "id": "t6",
+    "question": "What was the most serious security audit finding and what was decided about it?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_8",
+        "score": 0.548717,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2529,
+        "end": 2915,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.400797,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_4",
+        "score": 0.37272,
+        "filename": "search_outage_postmortem.txt",
+        "start": 1639,
+        "end": 2124,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_9",
+        "score": 0.365775,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2774,
+        "end": 3226,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_5",
+        "score": 0.345779,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 1797,
+        "end": 2266,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 386
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1345
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2266
+      }
+    }
+  },
+  {
+    "id": "t7",
+    "question": "After the change announced in the Q3 review, where and when is the company offsite?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_5",
+        "score": 0.492797,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 1797,
+        "end": 2266,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+        "score": 0.487339,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 0,
+        "end": 466,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+        "score": 0.4872,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 0,
+        "end": 406,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_9",
+        "score": 0.46255,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2774,
+        "end": 3226,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_10",
+        "score": 0.433952,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 3135,
+        "end": 3372,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 0.0,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "evidence_recall": 0.0,
+        "completeness": 0.0,
+        "complete_answer": 0.0,
+        "context_chars": 469
+      },
+      "3": {
+        "precision": 0.0,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "evidence_recall": 0.0,
+        "completeness": 0.0,
+        "complete_answer": 0.0,
+        "context_chars": 1341
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.2,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2030
+      }
+    }
+  },
+  {
+    "id": "t8",
+    "question": "How much does cancelling the recruiting agency save, and who takes over recruiting?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_3",
+        "score": 0.515144,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 913,
+        "end": 1369,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+        "score": 0.42306,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 701,
+        "end": 1096,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_2",
+        "score": 0.410874,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 712,
+        "end": 1160,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_1",
+        "score": 0.255909,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 328,
+        "end": 779,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+        "score": 0.25007,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 327,
+        "end": 801,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 456
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1299
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2224
+      }
+    }
+  },
+  {
+    "id": "p1",
+    "question": "What caused the checkout outage?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+        "score": 0.760003,
+        "filename": "incident_postmortem.txt",
+        "start": 0,
+        "end": 430,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+        "score": 0.652228,
+        "filename": "incident_postmortem.txt",
+        "start": 2022,
+        "end": 2463,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+        "score": 0.644372,
+        "filename": "incident_postmortem.txt",
+        "start": 1163,
+        "end": 1662,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+        "score": 0.575362,
+        "filename": "incident_postmortem.txt",
+        "start": 1546,
+        "end": 2028,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+        "score": 0.472047,
+        "filename": "incident_postmortem.txt",
+        "start": 422,
+        "end": 876,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 0.5,
+        "completeness": 0.5045592705167173,
+        "complete_answer": 0.0,
+        "context_chars": 430
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 0.5,
+        "completeness": 0.5045592705167173,
+        "complete_answer": 0.0,
+        "context_chars": 1370
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2306
+      }
+    }
+  },
+  {
+    "id": "p2",
+    "question": "Why did the on-call engineer find out about the checkout outage so late?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+        "score": 0.570927,
+        "filename": "incident_postmortem.txt",
+        "start": 804,
+        "end": 1289,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+        "score": 0.567092,
+        "filename": "incident_postmortem.txt",
+        "start": 0,
+        "end": 430,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+        "score": 0.557186,
+        "filename": "incident_postmortem.txt",
+        "start": 1163,
+        "end": 1662,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_6",
+        "score": 0.487864,
+        "filename": "engineering_onboarding.md",
+        "start": 2045,
+        "end": 2467,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.483277,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 485
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1414
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2310
+      }
+    }
+  },
+  {
+    "id": "p3",
+    "question": "Why did the checkout service stay down instead of degrading gracefully?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+        "score": 0.61679,
+        "filename": "incident_postmortem.txt",
+        "start": 0,
+        "end": 430,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+        "score": 0.611116,
+        "filename": "incident_postmortem.txt",
+        "start": 1546,
+        "end": 2028,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+        "score": 0.552315,
+        "filename": "incident_postmortem.txt",
+        "start": 1163,
+        "end": 1662,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+        "score": 0.527143,
+        "filename": "incident_postmortem.txt",
+        "start": 2022,
+        "end": 2463,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_0",
+        "score": 0.46587,
+        "filename": "search_outage_postmortem.txt",
+        "start": 0,
+        "end": 447,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 0.0,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "evidence_recall": 0.0,
+        "completeness": 0.0,
+        "complete_answer": 0.0,
+        "context_chars": 430
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1411
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2299
+      }
+    }
+  },
+  {
+    "id": "p4",
+    "question": "Why were some customers charged twice, and how was it resolved?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+        "score": 0.500316,
+        "filename": "incident_postmortem.txt",
+        "start": 2022,
+        "end": 2463,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+        "score": 0.447384,
+        "filename": "incident_postmortem.txt",
+        "start": 1546,
+        "end": 2028,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+        "score": 0.396578,
+        "filename": "incident_postmortem.txt",
+        "start": 1163,
+        "end": 1662,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+        "score": 0.388267,
+        "filename": "incident_postmortem.txt",
+        "start": 0,
+        "end": 430,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+        "score": 0.358841,
+        "filename": "incident_postmortem.txt",
+        "start": 804,
+        "end": 1289,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 441
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1422
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2337
+      }
+    }
+  },
+  {
+    "id": "p5",
+    "question": "What was the estimated lost revenue from the checkout outage?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+        "score": 0.676736,
+        "filename": "incident_postmortem.txt",
+        "start": 2022,
+        "end": 2463,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+        "score": 0.622194,
+        "filename": "incident_postmortem.txt",
+        "start": 0,
+        "end": 430,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+        "score": 0.537564,
+        "filename": "incident_postmortem.txt",
+        "start": 1163,
+        "end": 1662,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_4",
+        "score": 0.488778,
+        "filename": "search_outage_postmortem.txt",
+        "start": 1639,
+        "end": 2124,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+        "score": 0.483294,
+        "filename": "incident_postmortem.txt",
+        "start": 1546,
+        "end": 2028,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 441
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1370
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2337
+      }
+    }
+  },
+  {
+    "id": "p6",
+    "question": "Who owns the action item to prevent double charges, and when is it due?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_7",
+        "score": 0.461205,
+        "filename": "incident_postmortem.txt",
+        "start": 2887,
+        "end": 3306,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_8",
+        "score": 0.321283,
+        "filename": "employee_handbook.md",
+        "start": 3221,
+        "end": 3397,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_9",
+        "score": 0.317186,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2774,
+        "end": 3226,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.313623,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_4",
+        "score": 0.310755,
+        "filename": "engineering_onboarding.md",
+        "start": 1287,
+        "end": 1742,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 419
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1047
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1976
+      }
+    }
+  },
+  {
+    "id": "p7",
+    "question": "How long was checkout unavailable?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+        "score": 0.679063,
+        "filename": "incident_postmortem.txt",
+        "start": 0,
+        "end": 430,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+        "score": 0.564281,
+        "filename": "incident_postmortem.txt",
+        "start": 1163,
+        "end": 1662,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+        "score": 0.51751,
+        "filename": "incident_postmortem.txt",
+        "start": 2022,
+        "end": 2463,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+        "score": 0.480769,
+        "filename": "incident_postmortem.txt",
+        "start": 1546,
+        "end": 2028,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_0",
+        "score": 0.427202,
+        "filename": "search_outage_postmortem.txt",
+        "start": 0,
+        "end": 447,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 430
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1370
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2299
+      }
+    }
+  },
+  {
+    "id": "c1",
+    "question": "Who is the office manager of the Zürich office?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:8519398235571a95-1_chunk_1",
+        "score": 0.642003,
+        "filename": "office_directory.csv",
+        "start": 496,
+        "end": 993,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:8519398235571a95-1_chunk_3",
+        "score": 0.491149,
+        "filename": "office_directory.csv",
+        "start": 1494,
+        "end": 1734,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:8519398235571a95-1_chunk_0",
+        "score": 0.486198,
+        "filename": "office_directory.csv",
+        "start": 0,
+        "end": 495,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:8519398235571a95-1_chunk_2",
+        "score": 0.482143,
+        "filename": "office_directory.csv",
+        "start": 994,
+        "end": 1493,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_9",
+        "score": 0.367003,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2774,
+        "end": 3226,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 497
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1232
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2183
+      }
+    }
+  },
+  {
+    "id": "c2",
+    "question": "How many employees work in the São Paulo office?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:8519398235571a95-1_chunk_1",
+        "score": 0.530433,
+        "filename": "office_directory.csv",
+        "start": 496,
+        "end": 993,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_10",
+        "score": 0.460218,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 3135,
+        "end": 3372,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:8519398235571a95-1_chunk_2",
+        "score": 0.433375,
+        "filename": "office_directory.csv",
+        "start": 994,
+        "end": 1493,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:8519398235571a95-1_chunk_3",
+        "score": 0.425177,
+        "filename": "office_directory.csv",
+        "start": 1494,
+        "end": 1734,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:8519398235571a95-1_chunk_0",
+        "score": 0.354794,
+        "filename": "office_directory.csv",
+        "start": 0,
+        "end": 495,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 497
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1233
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1968
+      }
+    }
+  },
+  {
+    "id": "c3",
+    "question": "Which office is in the JST time zone, and is desk booking required there?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:8519398235571a95-1_chunk_2",
+        "score": 0.623038,
+        "filename": "office_directory.csv",
+        "start": 994,
+        "end": 1493,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:8519398235571a95-1_chunk_3",
+        "score": 0.55664,
+        "filename": "office_directory.csv",
+        "start": 1494,
+        "end": 1734,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:8519398235571a95-1_chunk_1",
+        "score": 0.553749,
+        "filename": "office_directory.csv",
+        "start": 496,
+        "end": 993,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:8519398235571a95-1_chunk_0",
+        "score": 0.504141,
+        "filename": "office_directory.csv",
+        "start": 0,
+        "end": 495,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_1",
+        "score": 0.361519,
+        "filename": "employee_handbook.md",
+        "start": 384,
+        "end": 874,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 0.0,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "evidence_recall": 0.0,
+        "completeness": 0.49032258064516127,
+        "complete_answer": 0.0,
+        "context_chars": 499
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 0.3333333333333333,
+        "evidence_recall": 1.0,
+        "completeness": 0.9935483870967742,
+        "complete_answer": 1.0,
+        "context_chars": 1236
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.3333333333333333,
+        "evidence_recall": 1.0,
+        "completeness": 0.9935483870967742,
+        "complete_answer": 1.0,
+        "context_chars": 2221
+      }
+    }
+  },
+  {
+    "id": "c4",
+    "question": "When did the Berlin Engineering office open?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:8519398235571a95-1_chunk_0",
+        "score": 0.478731,
+        "filename": "office_directory.csv",
+        "start": 0,
+        "end": 495,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:8519398235571a95-1_chunk_1",
+        "score": 0.423022,
+        "filename": "office_directory.csv",
+        "start": 496,
+        "end": 993,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:8519398235571a95-1_chunk_2",
+        "score": 0.40564,
+        "filename": "office_directory.csv",
+        "start": 994,
+        "end": 1493,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+        "score": 0.390962,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 701,
+        "end": 1096,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_3",
+        "score": 0.362864,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 913,
+        "end": 1369,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 495
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1491
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2342
+      }
+    }
+  },
+  {
+    "id": "r1",
+    "question": "Why was the TalentBridge recruiting contract renewed in Q2?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_2",
+        "score": 0.619875,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 712,
+        "end": 1160,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_3",
+        "score": 0.563374,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 913,
+        "end": 1369,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+        "score": 0.534119,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 701,
+        "end": 1096,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+        "score": 0.463162,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 327,
+        "end": 801,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+        "score": 0.424316,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 0,
+        "end": 466,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 448
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1299
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2239
+      }
+    }
+  },
+  {
+    "id": "r2",
+    "question": "What was APAC churn in Q2, and who handled first-line support in Japanese at that time?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_6",
+        "score": 0.741512,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 1908,
+        "end": 2386,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:4dc8aa41adae62d9-1_chunk_4",
+        "score": 0.65101,
+        "filename": "q2_business_review_transcript.txt",
+        "start": 1522,
+        "end": 1972,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_7",
+        "score": 0.60329,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 2253,
+        "end": 2635,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+        "score": 0.441159,
+        "filename": "incident_postmortem.txt",
+        "start": 804,
+        "end": 1289,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.387354,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 0.0,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "evidence_recall": 0.0,
+        "completeness": 0.0,
+        "complete_answer": 0.0,
+        "context_chars": 478
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1310
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2269
+      }
+    }
+  },
+  {
+    "id": "s1",
+    "question": "Why did the search outage take so long to diagnose?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_1",
+        "score": 0.580142,
+        "filename": "search_outage_postmortem.txt",
+        "start": 439,
+        "end": 915,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_0",
+        "score": 0.533792,
+        "filename": "search_outage_postmortem.txt",
+        "start": 0,
+        "end": 447,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_2",
+        "score": 0.518595,
+        "filename": "search_outage_postmortem.txt",
+        "start": 773,
+        "end": 1172,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_3",
+        "score": 0.504798,
+        "filename": "search_outage_postmortem.txt",
+        "start": 1162,
+        "end": 1645,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_4",
+        "score": 0.49334,
+        "filename": "search_outage_postmortem.txt",
+        "start": 1639,
+        "end": 2124,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 0.3333333333333333,
+        "completeness": 0.32054176072234764,
+        "complete_answer": 0.0,
+        "context_chars": 476
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 0.6666666666666666,
+        "completeness": 0.5756207674943566,
+        "complete_answer": 0.0,
+        "context_chars": 1322
+      },
+      "5": {
+        "precision": 0.6,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2290
+      }
+    }
+  },
+  {
+    "id": "s2",
+    "question": "What filled up the disks on the search cluster nodes?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_1",
+        "score": 0.600842,
+        "filename": "search_outage_postmortem.txt",
+        "start": 439,
+        "end": 915,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_5",
+        "score": 0.569878,
+        "filename": "search_outage_postmortem.txt",
+        "start": 2052,
+        "end": 2472,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_0",
+        "score": 0.527479,
+        "filename": "search_outage_postmortem.txt",
+        "start": 0,
+        "end": 447,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_3",
+        "score": 0.522909,
+        "filename": "search_outage_postmortem.txt",
+        "start": 1162,
+        "end": 1645,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:cd54e08bd4ed6428-1_chunk_2",
+        "score": 0.474562,
+        "filename": "search_outage_postmortem.txt",
+        "start": 773,
+        "end": 1172,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 476
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1343
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2225
+      }
+    }
+  },
+  {
+    "id": "e1",
+    "question": "Who can approve a production deployment?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_4",
+        "score": 0.678431,
+        "filename": "engineering_onboarding.md",
+        "start": 1287,
+        "end": 1742,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_3",
+        "score": 0.421845,
+        "filename": "engineering_onboarding.md",
+        "start": 948,
+        "end": 1403,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_1",
+        "score": 0.394492,
+        "filename": "engineering_onboarding.md",
+        "start": 277,
+        "end": 666,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+        "score": 0.368594,
+        "filename": "incident_postmortem.txt",
+        "start": 2449,
+        "end": 2923,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_5",
+        "score": 0.358679,
+        "filename": "engineering_onboarding.md",
+        "start": 1671,
+        "end": 2164,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 455
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1299
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2266
+      }
+    }
+  },
+  {
+    "id": "e2",
+    "question": "How much is the on-call allowance for engineers?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_5",
+        "score": 0.579472,
+        "filename": "engineering_onboarding.md",
+        "start": 1671,
+        "end": 2164,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+        "score": 0.395987,
+        "filename": "quarterly_review_transcript.txt",
+        "start": 701,
+        "end": 1096,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_0",
+        "score": 0.343804,
+        "filename": "engineering_onboarding.md",
+        "start": 0,
+        "end": 405,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_6",
+        "score": 0.342136,
+        "filename": "engineering_onboarding.md",
+        "start": 2045,
+        "end": 2467,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_5",
+        "score": 0.33837,
+        "filename": "employee_handbook.md",
+        "start": 2060,
+        "end": 2550,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 493
+      },
+      "3": {
+        "precision": 0.3333333333333333,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1293
+      },
+      "5": {
+        "precision": 0.2,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2205
+      }
+    }
+  },
+  {
+    "id": "e3",
+    "question": "Which VPN profile do engineers use to reach staging, and how long does its session last?",
+    "retrieved": [
+      {
+        "rank": 1,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_3",
+        "score": 0.740016,
+        "filename": "engineering_onboarding.md",
+        "start": 948,
+        "end": 1403,
+        "context_id": null
+      },
+      {
+        "rank": 2,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_2",
+        "score": 0.60696,
+        "filename": "engineering_onboarding.md",
+        "start": 587,
+        "end": 1084,
+        "context_id": null
+      },
+      {
+        "rank": 3,
+        "chunk_id": "default:9785ab6ab4e2a203-1_chunk_6",
+        "score": 0.436863,
+        "filename": "employee_handbook.md",
+        "start": 2472,
+        "end": 2935,
+        "context_id": null
+      },
+      {
+        "rank": 4,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_1",
+        "score": 0.426528,
+        "filename": "engineering_onboarding.md",
+        "start": 277,
+        "end": 666,
+        "context_id": null
+      },
+      {
+        "rank": 5,
+        "chunk_id": "default:6db2d8484c5f8c97-1_chunk_4",
+        "score": 0.410932,
+        "filename": "engineering_onboarding.md",
+        "start": 1287,
+        "end": 1742,
+        "context_id": null
+      }
+    ],
+    "metrics": {
+      "1": {
+        "precision": 1.0,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 455
+      },
+      "3": {
+        "precision": 0.6666666666666666,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 1415
+      },
+      "5": {
+        "precision": 0.4,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "evidence_recall": 1.0,
+        "completeness": 1.0,
+        "complete_answer": 1.0,
+        "context_chars": 2259
+      }
+    }
+  }
+]

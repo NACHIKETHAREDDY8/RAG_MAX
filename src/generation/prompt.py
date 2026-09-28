@@ -2,7 +2,13 @@
 
 import json
 
+from src.chunking.models import CHUNK_METADATA_KEYS
 from src.vector_store.models import SearchResult
+
+# Chunking bookkeeping means nothing to the LLM, and context_text and
+# matched_text would repeat chunk text already in the prompt. The section
+# path does help it place the text.
+PROMPT_OMITTED_KEYS = (CHUNK_METADATA_KEYS - {"section_path"}) | {"matched_text"}
 
 def format_sources(context: list[SearchResult]) -> list[str]:
     """Format each chunk's filename, page and document id for display."""
@@ -28,7 +34,14 @@ def build_rag_prompt(question: str, context: list[SearchResult]) -> str:
     context_sections = []
 
     for result in context:
-        metadata = json.dumps(result.metadata, sort_keys=True)
+        metadata = json.dumps(
+            {
+                key: value
+                for key, value in result.metadata.items()
+                if key not in PROMPT_OMITTED_KEYS
+            },
+            sort_keys=True,
+        )
         source_details = format_sources([result])
         source_section = f"{source_details[0]}\n" if source_details else ""
         context_sections.append(

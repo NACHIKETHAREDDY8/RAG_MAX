@@ -1,0 +1,9 @@
+{
+  "label": "fixed",
+  "strategy": "fixed",
+  "params": {
+    "chunk_size": 500,
+    "overlap": 50
+  },
+  "expand_context": false
+}

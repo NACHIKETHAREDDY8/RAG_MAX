@@ -1,0 +1,9 @@
+{
+  "label": "sliding_window",
+  "strategy": "sliding_window",
+  "params": {
+    "window_size": 80,
+    "step": 60
+  },
+  "expand_context": false
+}

@@ -1,0 +1,11 @@
+{
+  "label": "structure",
+  "strategy": "structure",
+  "params": {
+    "max_chars": 1000,
+    "min_section_chars": 200,
+    "include_section_path": true,
+    "detect_plain_headings": true
+  },
+  "expand_context": false
+}

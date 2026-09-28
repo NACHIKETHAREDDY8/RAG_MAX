@@ -1,0 +1,24 @@
+Search Degradation Postmortem
+
+Summary
+On 2 June 2026 product search returned errors or empty results for about two hours, from 09:15 to 11:20 UTC. Browsing by category and checkout kept working, but customers who relied on the search box could not find products. The degradation was caused by a full disk on two of the six search cluster nodes, which made the cluster reject new writes and then fail queries against the affected shards.
+
+Timeline
+At 09:15 UTC the nightly re-indexing job, which had been delayed by a slow upstream export, was still running when morning traffic started. Its temporary files filled the data disk on two nodes. The disk usage alert fired at 09:17 and paged the on-call engineer for the search team, who acknowledged it within four minutes.
+
+The engineer first suspected a network problem, because the errors looked like connection timeouts between the search service and the cluster. It took until 10:05 to see that the two nodes had switched their indices to read-only mode to protect themselves. Deleting the temporary files and clearing the read-only flag restored writes at 10:40, and all shards were healthy again at 11:20.
+
+Root Cause
+The re-indexing job wrote its temporary files to the same disk as the live indices, and nothing limited how much space it could use. On a normal night it finishes before 06:00 and cleans up after itself, so the problem only appears when the job overruns into daytime traffic. The cluster's protective read-only mode worked as designed, but the search service turned the resulting errors into empty result pages instead of an error message, which delayed diagnosis.
+
+Impact
+Around 41,000 searches failed or returned no results. Conversion from search sessions dropped by roughly 60 percent during the incident, and the estimated revenue impact is €95,000. No data was lost and no customer was charged incorrectly.
+
+What Went Well
+The alert reached the right person immediately, and the runbook for read-only indices was accurate once the right cause was identified.
+
+Action Items
+Move re-indexing temporary files to a separate volume with a size limit. Owner: Tomasz Zielinski, due 20 June.
+Stop the re-indexing job automatically if it is still running at 07:00. Owner: Tomasz Zielinski, due 20 June.
+Show an error message instead of an empty page when search fails. Owner: Amara Osei, due 30 June.
+Add a dashboard panel for per-node disk usage in the search cluster. Owner: Marcus Webb, due 15 June.

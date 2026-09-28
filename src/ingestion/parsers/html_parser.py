@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 
 from src.ingestion.detection import FileType
 from src.ingestion.models import ParsedDocument, ParsedSection
@@ -18,6 +18,8 @@ BLOCK_TAGS = [
     "h6", "header", "hr", "li", "main", "nav", "ol", "p", "pre", "section",
     "table", "tr", "ul",
 ]
+
+HEADING_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
 DATE_META_NAMES = {"date", "dc.date", "dcterms.created", "article:published_time"}
 
@@ -48,6 +50,28 @@ def html_to_text(soup: BeautifulSoup) -> str:
 
     for tag in soup.find_all("br"):
         tag.replace_with("\n")
+    # Source line breaks between cells (as markdown-it writes tables) would
+    # otherwise put every cell on its own line and lose the rows.
+    for row in soup.find_all("tr"):
+        for child in list(row.children):
+            if isinstance(child, NavigableString) and not child.strip():
+                child.extract()
+    # Headings, list items and code keep a Markdown marker so chunkers can
+    # still see the document's structure once the tags are gone.
+    for tag in soup.find_all(HEADING_TAGS):
+        tag.insert(0, "#" * int(tag.name[1]) + " ")
+    for tag in soup.find_all("li"):
+        # In a loose list the text sits in a <p>, which starts its own line;
+        # the marker goes inside it so it stays on the item's line.
+        first = next(
+            (child for child in tag.children if not isinstance(child, NavigableString) or child.strip()),
+            None,
+        )
+        target = first if first is not None and first.name in BLOCK_TAGS else tag
+        target.insert(0, "- ")
+    for tag in soup.find_all("pre"):
+        tag.insert(0, "```\n")
+        tag.append("\n```")
     for tag in soup.find_all(["td", "th"]):
         tag.insert_after(" | ")
     for tag in soup.find_all(BLOCK_TAGS):

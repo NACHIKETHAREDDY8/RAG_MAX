@@ -1,7 +1,8 @@
 import config
 from logger import get_logger
-from src.chunking.fixed import fixed_size_chunk
-from src.chunking.models import Chunk
+from src.chunking.base import Chunker
+from src.chunking.fixed import FixedSizeChunker
+from src.chunking.models import CHUNK_METADATA_KEYS, Chunk
 from src.embeddings.service import EmbeddingService
 from src.indexing.versioning import DocumentVersioning, VersionInfo
 from src.ingestion.models import Document
@@ -11,7 +12,11 @@ logger = get_logger(__name__)
 
 
 class IndexingService:
-    """Chunk documents, embed the chunks, and store them."""
+    """Chunk documents, embed the chunks, and store them.
+
+    chunker is any Chunker strategy; without one, documents are cut into
+    fixed chunk_size-character chunks as before Phase 11.
+    """
 
     def __init__(
         self,
@@ -19,11 +24,11 @@ class IndexingService:
         repository: VectorStoreRepository,
         chunk_size: int = 500,
         chunk_overlap: int = 50,
+        chunker: Chunker | None = None,
     ) -> None:
         self.embedding_service = embedding_service
         self.repository = repository
-        self.chunk_size = chunk_size
-        self.chunk_overlap = chunk_overlap
+        self.chunker = chunker or FixedSizeChunker(chunk_size, chunk_overlap)
         self.versioning = DocumentVersioning(repository)
 
     def index_chunks(self, chunks: list[Chunk]) -> None:
@@ -38,24 +43,36 @@ class IndexingService:
         version of a file the tenant indexed before, the older version's
         chunks are removed once the new ones are stored.
         """
+        return sum(chunk.retrievable for chunk in self.chunk_and_index(document))
+
+    def chunk_and_index(self, document: Document) -> list[Chunk]:
+        """Index a document and return every chunk the chunker produced.
+
+        Context-only chunks (parents, sections) are returned but not
+        embedded; their text reaches the store as their children's context.
+        Returns [] when the document is already indexed.
+        """
         tenant_id = self._tenant_id(document)
 
         if self.is_indexed(document.document_id, tenant_id):
-            return 0
+            return []
 
         version = self.versioning.resolve(document, tenant_id)
 
-        chunks = fixed_size_chunk(
-            text=document.text,
-            document_id=document.document_id,
+        chunks = self.chunker.chunk(
+            document.text,
+            document.document_id,
+            self._chunk_metadata(document, tenant_id, version),
             # document_id is a content hash, so the same file indexed for two
             # tenants needs the tenant in its chunk ids to keep them unique.
             chunk_id_prefix=f"{tenant_id}:{document.document_id}",
-            metadata=self._chunk_metadata(document, tenant_id, version),
-            chunk_size=self.chunk_size,
-            overlap=self.chunk_overlap,
         )
-        self.index_chunks(chunks)
+        retrievable = [chunk for chunk in chunks if chunk.retrievable]
+
+        if not retrievable:
+            return []
+
+        self.index_chunks(retrievable)
 
         retired = self.versioning.retire_older_versions(document, tenant_id)
         if retired:
@@ -66,7 +83,7 @@ class IndexingService:
                 version.version,
             )
 
-        return len(chunks)
+        return chunks
 
     def refresh_metadata(self, document: Document) -> int:
         """Update an indexed document's stored metadata without re-embedding.
@@ -83,13 +100,23 @@ class IndexingService:
         changed = 0
 
         for record in self.repository.document_records(document.document_id, tenant_id):
+            # What the chunker recorded (offsets, parent, section) is not
+            # document metadata and stays as it was.
+            updated = {
+                **metadata,
+                **{
+                    key: value
+                    for key, value in record.metadata.items()
+                    if key in CHUNK_METADATA_KEYS
+                },
+            }
             if (
                 self.repository.filename_of(record) != document.filename
-                or record.metadata == metadata
+                or record.metadata == updated
             ):
                 continue
 
-            self.repository.update_metadata(record.chunk_id, metadata)
+            self.repository.update_metadata(record.chunk_id, updated)
             changed += 1
 
         return changed

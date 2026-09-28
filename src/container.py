@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 
 import config
+from src.chunking.registry import build_chunker
 from src.embeddings.provider import OpenAIEmbeddingProvider
 from src.embeddings.service import EmbeddingService
 from src.generation.llm import OpenAILLM
@@ -39,14 +40,26 @@ def build_container() -> Container:
         config.VECTOR_STORE_PATH,
     )
 
-    indexing_service = IndexingService(
-        embedding_service,
-        repository,
-        chunk_size=config.CHUNK_SIZE,
-        chunk_overlap=config.CHUNK_OVERLAP,
+    # The index file is named after this entry's parameters, so the strategy
+    # must be spelled as its key (an alias would fingerprint the wrong entry).
+    if config.CHUNKING_STRATEGY not in config.CHUNKING_PARAMS:
+        raise ValueError(
+            f"CHUNKING_STRATEGY '{config.CHUNKING_STRATEGY}' has no entry in "
+            f"CHUNKING_PARAMS. Use one of: {', '.join(sorted(config.CHUNKING_PARAMS))}"
+        )
+    chunker = build_chunker(
+        config.CHUNKING_STRATEGY,
+        config.CHUNKING_PARAMS,
+        embedding_service=embedding_service,
     )
+    indexing_service = IndexingService(embedding_service, repository, chunker=chunker)
     rag_service = RAGService(
-        RetrievalService(embedding_service, repository, top_k=config.TOP_K),
+        RetrievalService(
+            embedding_service,
+            repository,
+            top_k=config.TOP_K,
+            expand_context=config.RETRIEVAL_EXPAND_CONTEXT and chunker.provides_context,
+        ),
         GenerationService(
             OpenAILLM(api_key=config.OPENAI_API_KEY, model=config.CHAT_MODEL)
         ),

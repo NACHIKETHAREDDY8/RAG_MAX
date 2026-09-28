@@ -1,0 +1,45 @@
+{
+  "label": "metadata_aware",
+  "strategy": "metadata_aware",
+  "params": {
+    "rules": [
+      {
+        "when": {
+          "source_type": [
+            "csv",
+            "json"
+          ]
+        },
+        "strategy": "recursive",
+        "params": {
+          "chunk_size": 500,
+          "separators": [
+            "line",
+            "word"
+          ]
+        }
+      },
+      {
+        "when": {
+          "source_type": [
+            "markdown",
+            "html",
+            "docx"
+          ]
+        },
+        "strategy": "structure",
+        "params": {
+          "max_chars": 1000
+        }
+      }
+    ],
+    "fallback": {
+      "strategy": "recursive",
+      "params": {
+        "chunk_size": 500
+      }
+    },
+    "provides_context": false
+  },
+  "expand_context": false
+}

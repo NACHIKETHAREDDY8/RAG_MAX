@@ -1,0 +1,11 @@
+office,city,country,employees,opened,office_manager,time_zone,desk_booking
+HQ,Amsterdam,Netherlands,240,2014,Sanne de Vries,CET,required
+Berlin Engineering,Berlin,Germany,130,2017,Jonas Keller,CET,optional
+London Sales,London,United Kingdom,85,2018,Olivia Grant,GMT,required
+Zürich Research,Zürich,Switzerland,40,2020,Lukas Brunner,CET,optional
+São Paulo Support,São Paulo,Brazil,55,2021,Camila Rocha,BRT,optional
+Tokyo Support,Tokyo,Japan,12,2023,Haruto Sato,JST,required
+Austin Sales,Austin,United States,60,2022,Megan Brooks,CST,optional
+Singapore Hub,Singapore,Singapore,35,2022,Wei Ling Tan,SGT,required
+Warsaw Engineering,Warsaw,Poland,95,2019,Piotr Nowak,CET,optional
+Lisbon Customer Success,Lisbon,Portugal,0,2027,Inês Carvalho,WET,required

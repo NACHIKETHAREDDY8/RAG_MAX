@@ -21,12 +21,27 @@ class DocxParser(BaseParser):
             if isinstance(block, Table):
                 blocks.extend(_table_rows(block))
             elif block.text.strip():
-                blocks.append(block.text)
+                blocks.append(_structure_marker(block) + block.text)
 
         return ParsedDocument(
             sections=[ParsedSection(text="\n".join(blocks))],
             metadata=_core_metadata(document),
         )
+
+
+def _structure_marker(paragraph) -> str:
+    """A Markdown marker for heading and list styles, so chunkers see the structure."""
+    style = paragraph.style.name if paragraph.style is not None else ""
+
+    if style == "Title":
+        return "# "
+    if style.startswith("Heading "):
+        level = style.removeprefix("Heading ")
+        if level.isdigit():
+            return "#" * min(int(level), 6) + " "
+    if style.startswith("List"):
+        return "- "
+    return ""
 
 
 def _table_rows(table: Table) -> list[str]:

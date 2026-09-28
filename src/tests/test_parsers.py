@@ -61,7 +61,7 @@ def test_docx_keeps_paragraphs_and_tables_in_order(tmp_path):
     parsed = DocxParser().parse(write_docx(tmp_path / "policy.docx"))
 
     assert text_of(parsed).splitlines() == [
-        "Leave Policy",
+        "# Leave Policy",
         "Employees get 20 days of annual leave.",
         "Type | Days",
         "Sick | 10",
@@ -114,7 +114,7 @@ def test_txt_honours_byte_order_marks(tmp_path):
 # --- Markdown ------------------------------------------------------------
 
 
-def test_markdown_is_rendered_to_plain_text(tmp_path):
+def test_markdown_keeps_structure_markers_only(tmp_path):
     path = tmp_path / "guide.md"
     path.write_text(
         "# Leave Guide\n\n"
@@ -127,12 +127,17 @@ def test_markdown_is_rendered_to_plain_text(tmp_path):
     parsed = MarkdownParser().parse(path)
     text = text_of(parsed)
 
-    assert "Leave Guide" in text
-    assert "Annual leave is 20 days. See the portal." in text
-    assert "Sick leave\nParental leave" in text
-    assert "submit_request()" in text
-    for syntax in ("#", "**", "](", "```"):
-        assert syntax not in text
+    # Headings, list items and code blocks keep a marker for the chunkers;
+    # inline formatting and link URLs are dropped.
+    assert text.splitlines() == [
+        "# Leave Guide",
+        "Annual leave is 20 days. See the portal.",
+        "- Sick leave",
+        "- Parental leave",
+        "```",
+        "submit_request()",
+        "```",
+    ]
     assert parsed.metadata["title"] == "Leave Guide"
 
 
@@ -153,7 +158,7 @@ def test_markdown_front_matter_becomes_metadata(tmp_path):
         "encoding": "utf-8",
     }
     assert "tags" not in text_of(parsed)
-    assert text_of(parsed).startswith("Heading")
+    assert text_of(parsed).startswith("# Heading")
 
 
 # --- HTML ----------------------------------------------------------------
@@ -178,10 +183,10 @@ def test_html_keeps_visible_text_only(tmp_path):
     lines = [line for line in text_of(parsed).splitlines() if line]
 
     assert lines == [
-        "Leave Policy",
+        "# Leave Policy",
         "Annual leave is 20 days.",
-        "Sick",
-        "Parental",
+        "- Sick",
+        "- Parental",
         "Type | Days",
         "Sick | 10",
     ]
@@ -273,3 +278,23 @@ def test_invalid_json_raises_parser_error(tmp_path):
 
     with pytest.raises(ParserError, match="broken.json as json"):
         JsonParser().parse(path)
+
+
+def test_markdown_table_keeps_one_line_per_row(tmp_path):
+    path = tmp_path / "table.md"
+    path.write_text(
+        "| Type | Days |\n|---|---|\n| Sick | 10 |\n| Annual | 25 |\n", encoding="utf-8"
+    )
+
+    text = MarkdownParser().parse(path).sections[0].text
+
+    assert text.splitlines() == ["Type | Days", "Sick | 10", "Annual | 25"]
+
+
+def test_markdown_loose_list_keeps_marker_on_item_line(tmp_path):
+    path = tmp_path / "loose.md"
+    path.write_text("# Steps\n\n- First item\n\n- Second item\n\n1. Numbered\n", encoding="utf-8")
+
+    text = MarkdownParser().parse(path).sections[0].text
+
+    assert text.splitlines() == ["# Steps", "- First item", "- Second item", "- Numbered"]

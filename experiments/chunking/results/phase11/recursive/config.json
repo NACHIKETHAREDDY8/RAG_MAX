@@ -1,0 +1,16 @@
+{
+  "label": "recursive",
+  "strategy": "recursive",
+  "params": {
+    "chunk_size": 500,
+    "overlap": 0,
+    "separators": [
+      "section",
+      "paragraph",
+      "line",
+      "sentence",
+      "word"
+    ]
+  },
+  "expand_context": false
+}

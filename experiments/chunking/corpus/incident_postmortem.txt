@@ -1,0 +1,29 @@
+Checkout Outage Postmortem
+
+Summary
+On 14 August 2026 the checkout service was unavailable for 47 minutes, from 13:02 to 13:49 UTC. During that time customers could browse the store and fill their baskets, but every attempt to pay failed with a timeout. The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.
+
+Timeline
+At 13:02 UTC a routine configuration change was deployed to the payments service. The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20. Lunchtime traffic in Europe was close to its daily peak, and within two minutes requests were queueing for a free connection.
+
+The first alert, for payment latency above five seconds, fired at 13:09. It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged. The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel.
+
+The engineer identified the connection pool change at 13:40 by comparing the deployed configuration with the previous release. The change was rolled back at 13:44, and checkout had fully recovered by 13:49.
+
+Root Cause
+The direct cause was the reduced connection pool. With only 20 connections available, most requests waited in the queue until the 10-second client timeout expired. The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts. Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly. This retry storm is why the service stayed down instead of degrading gracefully.
+
+The configuration file had no validation, and the change was reviewed by one person who focused on the timeout value and did not notice the second line.
+
+Impact
+Around 18,400 checkout attempts failed during the outage. Based on the average basket value for that time of day, the estimated lost revenue is €310,000. In addition, 2,100 customers were charged twice: their first payment succeeded at the payment provider after the client had already timed out and retried. All duplicate charges were refunded by 16 August, and affected customers received a 15 percent discount code.
+
+What Went Well
+Once the right engineer was involved, diagnosis and rollback took only 13 minutes. Customer support recognised the pattern quickly and published a status page update at 13:35, before engineering had confirmed the incident.
+
+Action Items
+Add validation that rejects any production connection pool size below 100. Owner: Priya Nair, due 1 September.
+Audit every alert route and remove references to decommissioned rotations. Owner: Marcus Webb, due 5 September.
+Replace immediate retries in the checkout client with exponential backoff and jitter. Owner: Lena Hoffmann, due 12 September.
+Send an idempotency key with every payment request so that a retried payment can never be charged twice. Owner: Lena Hoffmann, due 30 September.
+Require two reviewers for any configuration change to the payments service. Owner: Priya Nair, due 1 September.

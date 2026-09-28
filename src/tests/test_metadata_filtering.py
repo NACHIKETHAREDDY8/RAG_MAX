@@ -181,6 +181,9 @@ def test_index_document_stores_all_metadata(embedding_service, repository):
         "document_id": "hash-1",
         "filename": "animals.pdf",
         "page": 2,
+        "chunk_strategy": "fixed",
+        "chunk_start": 0,
+        "chunk_end": 3,
     }
 
 

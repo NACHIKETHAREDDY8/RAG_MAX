@@ -4,7 +4,8 @@ Ask questions about your own documents and get answers grounded in their
 actual content, with the source file (and page, for PDFs) cited.
 
 The app reads every PDF, Word (.docx), text, Markdown, HTML, CSV and JSON
-file in `documents/`, splits it into overlapping pieces,
+file in `documents/`, splits it into pieces (chunks) with a configurable
+[chunking strategy](#chunking-strategies),
 converts each piece into an embedding vector, and stores them in a FAISS index.
 When you ask a question, it finds the 5 most relevant pieces and asks an OpenAI
 model to answer using only those — so it cannot invent facts that aren't in your
@@ -189,8 +190,9 @@ documents/* (+ optional *.meta.json)
     ↓                    → metadata → SHA-256 → one Document per PDF page,
     ↓                    one per other file (see "Ingestion architecture")
     ↓  IndexingService   skip documents this tenant already indexed (hash),
-    ↓                    resolve the version, 500-character chunks (50
-    ↓                    overlap) carrying the metadata, retire older versions
+    ↓                    resolve the version, chunk with CHUNKING_STRATEGY
+    ↓                    (default: 500 characters, 50 overlap) carrying the
+    ↓                    metadata, retire older versions
     ↓  EmbeddingService  OpenAI → 1,536 numbers per chunk
     ↓  Repository        stores chunk_id + text + embedding + metadata in the
     ↓                    VectorStore (FAISS), saves to disk
@@ -209,10 +211,10 @@ your question (+ optional filters)
 | Format | Extensions | How text is extracted | Format metadata |
 |---|---|---|---|
 | PDF | `.pdf` | pypdf, one Document per page | `author`, `date`, `page_count` |
-| Word | `.docx` | python-docx; paragraphs and tables in document order, one line per table row | `author`, `title`, `date` |
+| Word | `.docx` | python-docx; paragraphs and tables in document order, one line per table row; heading and list styles become `#` and `- ` lines | `author`, `title`, `date` |
 | Text | `.txt`, `.text` | as-is | `encoding` |
-| Markdown | `.md`, `.markdown` | rendered with markdown-it-py, then read as HTML; formatting symbols dropped | `title` (front matter or first `#` heading), `author`, `date` (front matter), `encoding` |
-| HTML | `.html`, `.htm` | BeautifulSoup; visible text only, one block element per line | `title`, `author`, `date` (from `<meta>`), `encoding` |
+| Markdown | `.md`, `.markdown` | rendered with markdown-it-py, then read as HTML; inline formatting and link URLs dropped, headings, list items, code fences and table rows kept | `title` (front matter or first `#` heading), `author`, `date` (front matter), `encoding` |
+| HTML | `.html`, `.htm` | BeautifulSoup; visible text only, one block element per line; `<h1>`–`<h6>` become `#` lines, `<li>` `- ` lines, `<pre>` fenced code | `title`, `author`, `date` (from `<meta>`), `encoding` |
 | CSV | `.csv` | one `column: value` line per row; delimiter detected | `row_count`, `column_count`, `encoding` |
 | JSON | `.json` | one `path.to.key: value` line per value | `encoding` |
 
@@ -245,7 +247,7 @@ file path
 IndexingService (src/indexing/)
   → duplicate detection    this tenant already has this document_id? skip
   → versioning.py          version number from what is stored for this filename
-  → chunker                fixed_size_chunk
+  → chunker                the Chunker built from CHUNKING_STRATEGY
   → embed, store, and remove chunks of older versions
 ```
 
@@ -277,6 +279,32 @@ result.documents     # list[Document], ready for IndexingService.index_document
 
 `ingest(path, mime_type="text/csv")` accepts a MIME type for files whose
 extension says nothing, such as uploads saved under a temporary name.
+
+## Chunking strategies
+
+How documents are cut into chunks is configurable. Ten strategies share one
+interface: `fixed` (the default, unchanged behaviour), `sliding_window`,
+`sentence`, `recursive`, `token`, `semantic`, `structure` (Markdown and
+document structure), `metadata_aware` (a strategy per document type),
+`parent_child` and `hierarchical`. Pick one with an environment variable:
+
+```powershell
+$env:CHUNKING_STRATEGY = "recursive"; python app.py
+```
+
+or in `.env` (`CHUNKING_STRATEGY=recursive`). Parameters live in
+`CHUNKING_PARAMS` in `config.py`. Each strategy and parameter set keeps its
+own index file, so switching strategy or changing a parameter re-indexes
+once and never mixes chunks. With
+`parent_child` and `hierarchical`, the LLM receives the larger parent or
+section around each matched chunk.
+
+- [docs/chunking.md](docs/chunking.md): how each strategy works, when to use
+  it, strengths, weaknesses and parameters.
+- [docs/chunking_experiment.md](docs/chunking_experiment.md): the strategies
+  compared on one corpus with the same questions, embedding model and k, and
+  why they retrieve differently. Re-run it with
+  `python -m src.experiments.chunking` (add `--offline` for a free run).
 
 ## Metadata and filtering
 
@@ -405,9 +433,19 @@ src/
     hashing.py     SHA-256 and document ids
     errors.py      IngestionError and its subclasses
     models.py      ParsedSection, ParsedDocument (parser output), Document
-  chunking/      text → overlapping pieces
-    fixed.py       sliding-window splitter
-    models.py      Chunk
+  chunking/      text → chunks; ten strategies behind one interface (docs/chunking.md)
+    base.py        Chunker interface
+    models.py      Chunk (offsets, strategy, parent, context)
+    registry.py    get_chunker / build_chunker / register_chunker
+    spans.py       character spans, sentence splitting, packing
+    fixed.py, sliding_window.py, sentence.py, recursive.py, token.py,
+    semantic.py, structure.py, metadata_aware.py, parent_child.py,
+    hierarchical.py
+  experiments/chunking/  compare strategies on one corpus (docs/chunking_experiment.md)
+    runner.py      same corpus, questions, embeddings and k for every strategy
+    metrics.py     precision, MRR, recall, completeness from evidence offsets
+    dataset.py     questions with gold evidence passages
+    report.py      Markdown comparison report
   tokenization/  measuring text in model units
     tokenizer.py   tiktoken encode / count / validate
   embeddings/    text → vectors
@@ -430,6 +468,9 @@ src/
     service.py     GenerationService — prompt → LLM
   services/      rag_service.py — RAGService: retrieval → generation
   tests/         pytest suite (no API calls; uses fake embeddings and LLM)
+
+experiments/chunking/       experiment corpus, questions, config and results
+docs/                       chunking guide and experiment report
 ```
 
 To use a different vector database (for example Chroma), implement
@@ -444,11 +485,14 @@ Everything lives in `config.py`:
 |---|---|
 | `EMBEDDING_MODEL`, `EMBEDDING_DIMENSION` | embedding model and its vector size |
 | `CHAT_MODEL` | model that writes the answer |
-| `CHUNK_SIZE`, `CHUNK_OVERLAP` | chunk length and overlap, in characters |
+| `CHUNK_SIZE`, `CHUNK_OVERLAP` | chunk length and overlap, in characters, for the `fixed` strategy |
+| `CHUNKING_STRATEGY` | which chunker to use (env var; default `fixed`) — see [Chunking strategies](#chunking-strategies) |
+| `CHUNKING_PARAMS` | parameters of every strategy |
+| `RETRIEVAL_EXPAND_CONTEXT` | answer from the parent/section of a matched chunk, for strategies that store one |
 | `TOP_K` | how many chunks are retrieved per question |
 | `DEFAULT_TENANT_ID` | tenant given to documents whose metadata names none |
 | `MAX_FILE_SIZE_MB` | larger documents are skipped before being read |
-| `DOCUMENTS_DIR`, `VECTOR_STORE_PATH` | where documents are read from and the index is saved |
+| `DOCUMENTS_DIR`, `VECTOR_STORE_PATH` | where documents are read from and the index is saved (`vector_store.<strategy>-<parameter hash>.faiss` for anything but the original fixed 500/50) |
 
 ## Tests
 
@@ -473,6 +517,19 @@ Ingestion has three files:
   indexes one file of every format and searches it with filters.
 - `test_versioning.py`: version numbers, replacing old versions, and deleting
   from the FAISS store.
+
+Chunking has three files:
+
+- `test_chunkers.py`: the contract every strategy shares (blank text, every
+  word in some chunk, valid offsets, sequential ids, copied metadata, short
+  documents), plus each strategy's own rules and edge cases: overlap
+  boundaries, abbreviations, over-long sentences and words, Unicode and
+  multi-byte characters, headings, tables, code blocks, lists and routing by
+  metadata.
+- `test_chunking_pipeline.py`: a chosen chunker through indexing, storage,
+  metadata refresh, context expansion at retrieval, and the container.
+- `test_chunking_experiment.py`: evidence location, metrics, the embedding
+  cache, and a complete offline experiment run.
 
 Sample files are generated by `src/tests/sample_files.py`; nothing is read
 from `documents/`.
@@ -509,8 +566,11 @@ The two index files don't match each other. Delete both and let them rebuild.
 - No retry around the OpenAI calls. A failed question is logged and the loop
   continues; a failure while indexing is logged, the chunks embedded so far
   are saved, and the app exits.
-- Chunks are split at a fixed character count, so sentences can be cut in half.
-  The 50-character overlap limits the damage but doesn't eliminate it.
+- The default `fixed` strategy splits at a fixed character count, so sentences
+  can be cut in half; the other strategies avoid this at other costs (see
+  [docs/chunking.md](docs/chunking.md)). Each chunking configuration gets its
+  own index file and old ones are not deleted; remove unused
+  `vector_store.*.faiss` files by hand.
 - Chunks from a document that is deleted from `documents/` stay in the index,
   and so do old versions of a file that was renamed. Delete the index files to
   rebuild.

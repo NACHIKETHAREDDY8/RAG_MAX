@@ -1,0 +1,176 @@
+{
+  "name": "phase11",
+  "corpus_dir": "experiments/chunking/corpus",
+  "questions_path": "experiments/chunking/questions.json",
+  "output_dir": "experiments/chunking/results",
+  "embedding_model": "text-embedding-3-small",
+  "strategies": [
+    {
+      "label": "fixed",
+      "strategy": "fixed",
+      "params": {
+        "chunk_size": 500,
+        "overlap": 50
+      }
+    },
+    {
+      "label": "fixed_1000",
+      "strategy": "fixed",
+      "params": {
+        "chunk_size": 1000,
+        "overlap": 100
+      }
+    },
+    {
+      "label": "sliding_window",
+      "strategy": "sliding_window",
+      "params": {
+        "window_size": 80,
+        "step": 60
+      }
+    },
+    {
+      "label": "sentence",
+      "strategy": "sentence",
+      "params": {
+        "max_chars": 500,
+        "overlap_sentences": 1
+      }
+    },
+    {
+      "label": "recursive",
+      "strategy": "recursive",
+      "params": {
+        "chunk_size": 500,
+        "overlap": 0
+      }
+    },
+    {
+      "label": "token",
+      "strategy": "token",
+      "params": {
+        "max_tokens": 110,
+        "overlap_tokens": 12
+      }
+    },
+    {
+      "label": "semantic",
+      "strategy": "semantic",
+      "params": {
+        "buffer_size": 1,
+        "threshold_type": "percentile",
+        "breakpoint_threshold": 85.0,
+        "max_chars": 1000,
+        "min_chars": 150
+      }
+    },
+    {
+      "label": "semantic_plain",
+      "strategy": "semantic",
+      "params": {
+        "buffer_size": 1,
+        "threshold_type": "percentile",
+        "breakpoint_threshold": 85.0,
+        "max_chars": 1000,
+        "min_chars": 150,
+        "respect_headings": false,
+        "keep_references": false
+      }
+    },
+    {
+      "label": "structure",
+      "strategy": "structure",
+      "params": {
+        "max_chars": 1000,
+        "min_section_chars": 200
+      }
+    },
+    {
+      "label": "metadata_aware",
+      "strategy": "metadata_aware",
+      "params": {}
+    },
+    {
+      "label": "parent_child",
+      "strategy": "parent_child",
+      "params": {
+        "parent_size": 2000,
+        "child_size": 400,
+        "child_overlap": 0
+      }
+    },
+    {
+      "label": "hierarchical",
+      "strategy": "hierarchical",
+      "params": {
+        "section_max_chars": 3000,
+        "paragraph_max_chars": 1000,
+        "chunk_size": 400,
+        "context_level": "section"
+      }
+    }
+  ],
+  "top_k": 3,
+  "ks": [
+    1,
+    3,
+    5
+  ],
+  "expand_context": true,
+  "case_studies": [
+    {
+      "question": "t6",
+      "strategies": [
+        "fixed",
+        "fixed_1000",
+        "sentence",
+        "semantic",
+        "structure"
+      ]
+    },
+    {
+      "question": "r1",
+      "strategies": [
+        "fixed",
+        "fixed_1000",
+        "semantic"
+      ]
+    },
+    {
+      "question": "p3",
+      "strategies": [
+        "fixed",
+        "semantic_plain",
+        "semantic",
+        "parent_child"
+      ]
+    },
+    {
+      "question": "p1",
+      "strategies": [
+        "fixed",
+        "fixed_1000",
+        "semantic_plain",
+        "semantic",
+        "parent_child"
+      ]
+    },
+    {
+      "question": "p2",
+      "strategies": [
+        "fixed",
+        "structure",
+        "semantic",
+        "parent_child"
+      ]
+    },
+    {
+      "question": "t7",
+      "strategies": [
+        "fixed",
+        "sentence",
+        "semantic"
+      ]
+    }
+  ]
+}

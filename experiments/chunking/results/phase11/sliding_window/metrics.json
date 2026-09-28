@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "chunks": 54,
+    "context_chunks": 0,
+    "avg_chars": 485.35185185185185,
+    "median_chars": 485.0,
+    "min_chars": 408,
+    "max_chars": 541,
+    "avg_tokens": 103.24074074074075,
+    "embedded_texts": 54,
+    "chunks_by_document": {
+      "employee_handbook.md": 10,
+      "engineering_onboarding.md": 7,
+      "incident_postmortem.txt": 9,
+      "office_directory.csv": 5,
+      "q2_business_review_transcript.txt": 6,
+      "quarterly_review_transcript.txt": 10,
+      "search_outage_postmortem.txt": 7
+    }
+  },
+  "metrics": {
+    "1": {
+      "precision": 0.8,
+      "hit": 0.8,
+      "reciprocal_rank": 0.8,
+      "evidence_recall": 0.6952380952380952,
+      "completeness": 0.7466471868691007,
+      "complete_answer": 0.6285714285714286,
+      "context_chars": 482.25714285714287
+    },
+    "3": {
+      "precision": 0.45714285714285713,
+      "hit": 1.0,
+      "reciprocal_rank": 0.8857142857142857,
+      "evidence_recall": 0.9761904761904762,
+      "completeness": 0.9737947914567096,
+      "complete_answer": 0.9428571428571428,
+      "context_chars": 1463.7714285714285
+    },
+    "5": {
+      "precision": 0.29714285714285715,
+      "hit": 1.0,
+      "reciprocal_rank": 0.8857142857142857,
+      "evidence_recall": 0.9857142857142858,
+      "completeness": 0.9858445505861919,
+      "complete_answer": 0.9714285714285714,
+      "context_chars": 2440.057142857143
+    }
+  },
+  "by_document": {
+    "employee_handbook.md": {
+      "precision": 0.48148148148148145,
+      "hit": 1.0,
+      "reciprocal_rank": 0.9444444444444444,
+      "evidence_recall": 1.0,
+      "completeness": 1.0,
+      "complete_answer": 1.0,
+      "context_chars": 1402.888888888889
+    },
+    "engineering_onboarding.md": {
+      "precision": 0.5555555555555556,
+      "hit": 1.0,
+      "reciprocal_rank": 1.0,
+      "evidence_recall": 1.0,
+      "completeness": 1.0,
+      "complete_answer": 1.0,
+      "context_chars": 1492.3333333333333
+    },
+    "incident_postmortem.txt": {
+      "precision": 0.42857142857142855,
+      "hit": 1.0,
+      "reciprocal_rank": 0.7619047619047619,
+      "evidence_recall": 0.9285714285714286,
+      "completeness": 0.9134704444029856,
+      "complete_answer": 0.8571428571428571,
+      "context_chars": 1513.2857142857142
+    },
+    "office_directory.csv": {
+      "precision": 0.41666666666666663,
+      "hit": 1.0,
+      "reciprocal_rank": 0.8333333333333334,
+      "evidence_recall": 1.0,
+      "completeness": 1.0,
+      "complete_answer": 1.0,
+      "context_chars": 1555
+    },
+    "q2_business_review_transcript.txt": {
+      "precision": 0.3333333333333333,
+      "hit": 1.0,
+      "reciprocal_rank": 0.6666666666666666,
+      "evidence_recall": 1.0,
+      "completeness": 1.0,
+      "complete_answer": 1.0,
+      "context_chars": 1439
+    },
+    "quarterly_review_transcript.txt": {
+      "precision": 0.4583333333333333,
+      "hit": 1.0,
+      "reciprocal_rank": 1.0,
+      "evidence_recall": 0.9583333333333334,
+      "completeness": 0.9610655737704918,
+      "complete_answer": 0.875,
+      "context_chars": 1438.5
+    },
+    "search_outage_postmortem.txt": {
+      "precision": 0.5,
+      "hit": 1.0,
+      "reciprocal_rank": 0.75,
+      "evidence_recall": 1.0,
+      "completeness": 1.0,
+      "complete_answer": 1.0,
+      "context_chars": 1465
+    }
+  }
+}

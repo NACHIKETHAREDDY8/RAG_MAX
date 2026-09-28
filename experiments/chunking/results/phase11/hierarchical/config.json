@@ -1,0 +1,14 @@
+{
+  "label": "hierarchical",
+  "strategy": "hierarchical",
+  "params": {
+    "section_max_chars": 3000,
+    "paragraph_max_chars": 1000,
+    "chunk_size": 400,
+    "min_section_chars": 200,
+    "context_level": "section",
+    "include_section_path": true,
+    "detect_plain_headings": true
+  },
+  "expand_context": true
+}

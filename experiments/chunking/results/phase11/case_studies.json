@@ -1,0 +1,2298 @@
+[
+  {
+    "question": "t6",
+    "text": "What was the most serious security audit finding and what was decided about it?",
+    "evidence": [
+      {
+        "document_id": "3abc2433a9cafceb-1",
+        "start": 2636,
+        "end": 2773,
+        "text": "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old."
+      },
+      {
+        "document_id": "3abc2433a9cafceb-1",
+        "start": 2774,
+        "end": 2915,
+        "text": "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days."
+      }
+    ],
+    "strategies": {
+      "fixed": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_recall": 0.5,
+          "completeness": 0.41007194244604317,
+          "complete_answer": 0.0,
+          "context_chars": 1217
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:6db2d8484c5f8c97-1_chunk_5",
+            "score": 0.425501,
+            "filename": "engineering_onboarding.md",
+            "start": 2250,
+            "end": 2467,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_5",
+            "score": 0.405953,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 2250,
+            "end": 2750,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:cd54e08bd4ed6428-1_chunk_4",
+            "score": 0.344529,
+            "filename": "search_outage_postmortem.txt",
+            "start": 1800,
+            "end": 2300,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old.",
+            "whole_in_one_chunk": false,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_5",
+                "start": 2250,
+                "end": 2750,
+                "rank": 2,
+                "starts_with": "n. The plan is to hire two Japanese-speaking support agents in Tokyo and to loca",
+                "ends_with": "eys used by the analytics pipeline have never been rotated, some of them are mor"
+              },
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_6",
+                "start": 2700,
+                "end": 3200,
+                "rank": null,
+                "starts_with": "line have never been rotated, some of them are more than three years old. The de",
+                "ends_with": "announcements. The new Lisbon office opens in January with 20 desks, mostly for "
+              }
+            ]
+          },
+          {
+            "passage": "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_6",
+                "start": 2700,
+                "end": 3200,
+                "rank": null,
+                "starts_with": "line have never been rotated, some of them are more than three years old. The de",
+                "ends_with": "announcements. The new Lisbon office opens in January with 20 desks, mostly for "
+              }
+            ]
+          }
+        ]
+      },
+      "fixed_1000": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 0.5,
+          "completeness": 0.5863309352517986,
+          "complete_answer": 0.0,
+          "context_chars": 3000
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+            "score": 0.350253,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 1800,
+            "end": 2800,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+            "score": 0.349512,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 900,
+            "end": 1900,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.344758,
+            "filename": "incident_postmortem.txt",
+            "start": 1800,
+            "end": 2800,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+                "start": 1800,
+                "end": 2800,
+                "rank": 1,
+                "starts_with": "e November deadline. The remaining two services, reporting and the customer port",
+                "ends_with": " rotated, some of them are more than three years old. The decision is that all o"
+              },
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_3",
+                "start": 2700,
+                "end": 3372,
+                "rank": null,
+                "starts_with": "line have never been rotated, some of them are more than three years old. The de",
+                "ends_with": "ow be on the 12th to the 14th of March. That's everything for today, thanks all."
+              }
+            ]
+          },
+          {
+            "passage": "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+                "start": 1800,
+                "end": 2800,
+                "rank": 1,
+                "starts_with": "e November deadline. The remaining two services, reporting and the customer port",
+                "ends_with": " rotated, some of them are more than three years old. The decision is that all o"
+              },
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_3",
+                "start": 2700,
+                "end": 3372,
+                "rank": null,
+                "starts_with": "line have never been rotated, some of them are more than three years old. The de",
+                "ends_with": "ow be on the 12th to the 14th of March. That's everything for today, thanks all."
+              }
+            ]
+          }
+        ]
+      },
+      "sentence": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 1345
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_8",
+            "score": 0.548717,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 2529,
+            "end": 2915,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+            "score": 0.400797,
+            "filename": "incident_postmortem.txt",
+            "start": 2449,
+            "end": 2923,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:cd54e08bd4ed6428-1_chunk_4",
+            "score": 0.37272,
+            "filename": "search_outage_postmortem.txt",
+            "start": 1639,
+            "end": 2124,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_8",
+                "start": 2529,
+                "end": 2915,
+                "rank": 1,
+                "starts_with": "The external audit by Castell Security finished last week, and they reported thr",
+                "ends_with": " 15th of October, and from then on keys will rotate automatically every 90 days."
+              }
+            ]
+          },
+          {
+            "passage": "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_8",
+                "start": 2529,
+                "end": 2915,
+                "rank": 1,
+                "starts_with": "The external audit by Castell Security finished last week, and they reported thr",
+                "ends_with": " 15th of October, and from then on keys will rotate automatically every 90 days."
+              },
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_9",
+                "start": 2774,
+                "end": 3226,
+                "rank": 4,
+                "starts_with": "The decision is that all of those keys will be rotated by the 15th of October, a",
+                "ends_with": "bon office opens in January with 20 desks, mostly for the customer success team."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 1517
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_5",
+            "score": 0.568824,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 2529,
+            "end": 3095,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:6db2d8484c5f8c97-1_chunk_6",
+            "score": 0.383436,
+            "filename": "engineering_onboarding.md",
+            "start": 2165,
+            "end": 2467,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.364263,
+            "filename": "incident_postmortem.txt",
+            "start": 1371,
+            "end": 2020,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_5",
+                "start": 2529,
+                "end": 3095,
+                "rank": 1,
+                "starts_with": "The external audit by Castell Security finished last week, and they reported thr",
+                "ends_with": "it logs for data exports, and both have owners and should be fixed this quarter."
+              }
+            ]
+          },
+          {
+            "passage": "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_5",
+                "start": 2529,
+                "end": 3095,
+                "rank": 1,
+                "starts_with": "The external audit by Castell Security finished last week, and they reported thr",
+                "ends_with": "it logs for data exports, and both have owners and should be fixed this quarter."
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.3260411181728629,
+          "sentences": [
+            {
+              "index": 25,
+              "text": "Now the security audit.",
+              "in_evidence": false,
+              "distance_to_next": 0.32285262167752826,
+              "breakpoint_after": false
+            },
+            {
+              "index": 26,
+              "text": "The external audit by Castell Security finished last week, and they reported three high-severity findings.",
+              "in_evidence": false,
+              "distance_to_next": 0.05811810789332705,
+              "breakpoint_after": false
+            },
+            {
+              "index": 27,
+              "text": "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old.",
+              "in_evidence": true,
+              "distance_to_next": 0.18101460582944995,
+              "breakpoint_after": false
+            },
+            {
+              "index": 28,
+              "text": "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days.",
+              "in_evidence": true,
+              "distance_to_next": 0.18877803259249193,
+              "breakpoint_after": false
+            },
+            {
+              "index": 29,
+              "text": "The other two findings are about overly broad admin permissions in the support tool and missing audit logs for data exports, and both have owners and should be fixed this quarter.",
+              "in_evidence": false,
+              "distance_to_next": 0.345820427946539,
+              "breakpoint_after": true
+            },
+            {
+              "index": 30,
+              "text": "Last topic, a couple of announcements.",
+              "in_evidence": false,
+              "distance_to_next": 0.2869387268504173,
+              "breakpoint_after": false
+            }
+          ]
+        }
+      },
+      "structure": {
+        "metrics": {
+          "precision": 0.0,
+          "hit": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_recall": 0.0,
+          "completeness": 0.0,
+          "complete_answer": 0.0,
+          "context_chars": 1420
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.364263,
+            "filename": "incident_postmortem.txt",
+            "start": 1371,
+            "end": 2020,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:6db2d8484c5f8c97-1_chunk_5",
+            "score": 0.357152,
+            "filename": "engineering_onboarding.md",
+            "start": 2165,
+            "end": 2467,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_2",
+            "score": 0.345779,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 1797,
+            "end": 2266,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The most serious one is that API keys used by the analytics pipeline have never been rotated, some of them are more than three years old.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+                "start": 1908,
+                "end": 2773,
+                "rank": null,
+                "starts_with": "Next, customer churn in the Asia Pacific region. APAC churn went up to 9 percent",
+                "ends_with": "cs pipeline have never been rotated, some of them are more than three years old."
+              }
+            ]
+          },
+          {
+            "passage": "The decision is that all of those keys will be rotated by the 15th of October, and from then on keys will rotate automatically every 90 days.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_3",
+                "start": 2774,
+                "end": 3372,
+                "rank": 4,
+                "starts_with": "The decision is that all of those keys will be rotated by the 15th of October, a",
+                "ends_with": "ow be on the 12th to the 14th of March. That's everything for today, thanks all."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "r1",
+    "text": "Why was the TalentBridge recruiting contract renewed in Q2?",
+    "evidence": [
+      {
+        "document_id": "4dc8aa41adae62d9-1",
+        "start": 848,
+        "end": 1015,
+        "text": "We renewed the contract with the TalentBridge recruiting agency for another year, because they filled most of the senior roles and our own recruiters are fully booked."
+      }
+    ],
+    "strategies": {
+      "fixed": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 0.0,
+          "completeness": 0.6107784431137725,
+          "complete_answer": 0.0,
+          "context_chars": 1500
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+            "score": 0.57998,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 450,
+            "end": 950,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_2",
+            "score": 0.557447,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 900,
+            "end": 1400,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_1",
+            "score": 0.467456,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 450,
+            "end": 950,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "We renewed the contract with the TalentBridge recruiting agency for another year, because they filled most of the senior roles and our own recruiters are fully booked.",
+            "whole_in_one_chunk": false,
+            "chunks": [
+              {
+                "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+                "start": 450,
+                "end": 950,
+                "rank": 1,
+                "starts_with": "nt this quarter. Gross margin came in at 69 percent, slightly down because of th",
+                "ends_with": "t with the TalentBridge recruiting agency for another year, because they filled "
+              },
+              {
+                "chunk_id": "default:4dc8aa41adae62d9-1_chunk_2",
+                "start": 900,
+                "end": 1400,
+                "rank": 4,
+                "starts_with": "ting agency for another year, because they filled most of the senior roles and o",
+                "ends_with": "west dependencies, followed by notifications. Nobody has looked at billing in de"
+              }
+            ]
+          }
+        ]
+      },
+      "fixed_1000": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 0.9101796407185628,
+          "complete_answer": 1.0,
+          "context_chars": 3000
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+            "score": 0.571573,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 0,
+            "end": 1000,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+            "score": 0.557455,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 0,
+            "end": 1000,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_1",
+            "score": 0.532855,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 900,
+            "end": 1900,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "We renewed the contract with the TalentBridge recruiting agency for another year, because they filled most of the senior roles and our own recruiters are fully booked.",
+            "whole_in_one_chunk": false,
+            "chunks": [
+              {
+                "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+                "start": 0,
+                "end": 1000,
+                "rank": 1,
+                "starts_with": "Good morning everyone, this is the Q2 business review, let's go through the agen",
+                "ends_with": "her year, because they filled most of the senior roles and our own recruiters ar"
+              },
+              {
+                "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+                "start": 900,
+                "end": 1900,
+                "rank": 4,
+                "starts_with": "ting agency for another year, because they filled most of the senior roles and o",
+                "ends_with": "ation test with Castell Security is booked for the third quarter, and the scope "
+              }
+            ]
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 2185
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+            "score": 0.579847,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 157,
+            "end": 1138,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_1",
+            "score": 0.555694,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 680,
+            "end": 1205,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+            "score": 0.442855,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 0,
+            "end": 679,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "We renewed the contract with the TalentBridge recruiting agency for another year, because they filled most of the senior roles and our own recruiters are fully booked.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:4dc8aa41adae62d9-1_chunk_1",
+                "start": 157,
+                "end": 1138,
+                "rank": 1,
+                "starts_with": "Second quarter revenue was 3.75 million euros, up 8 percent year over year. Ente",
+                "ends_with": "oment, but finance asked every department to re-justify open roles in September."
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.3195550177027211,
+          "sentences": [
+            {
+              "index": 7,
+              "text": "On hiring, we closed four data engineering roles and two account executives this quarter.",
+              "in_evidence": false,
+              "distance_to_next": 0.2778208744310924,
+              "breakpoint_after": false
+            },
+            {
+              "index": 8,
+              "text": "Time to hire went down to 38 days on average.",
+              "in_evidence": false,
+              "distance_to_next": 0.1594453644980547,
+              "breakpoint_after": false
+            },
+            {
+              "index": 9,
+              "text": "We renewed the contract with the TalentBridge recruiting agency for another year, because they filled most of the senior roles and our own recruiters are fully booked.",
+              "in_evidence": true,
+              "distance_to_next": 0.10073067863663532,
+              "breakpoint_after": false
+            },
+            {
+              "index": 10,
+              "text": "There is no hiring freeze planned at the moment, but finance asked every department to re-justify open roles in September.",
+              "in_evidence": false,
+              "distance_to_next": 0.2893282940695937,
+              "breakpoint_after": false
+            },
+            {
+              "index": 11,
+              "text": "Next, infrastructure.",
+              "in_evidence": false,
+              "distance_to_next": 0.3445664356173208,
+              "breakpoint_after": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "question": "p3",
+    "text": "Why did the checkout service stay down instead of degrading gracefully?",
+    "evidence": [
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 1546,
+        "end": 1662,
+        "text": "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts."
+      },
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 1663,
+        "end": 1785,
+        "text": "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly."
+      },
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 1786,
+        "end": 1866,
+        "text": "This retry storm is why the service stayed down instead of degrading gracefully."
+      }
+    ],
+    "strategies": {
+      "fixed": {
+        "metrics": {
+          "precision": 0.6666666666666666,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 1500
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+            "score": 0.631411,
+            "filename": "incident_postmortem.txt",
+            "start": 1350,
+            "end": 1850,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+            "score": 0.609494,
+            "filename": "incident_postmortem.txt",
+            "start": 1800,
+            "end": 2300,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.585216,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 500,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+                "start": 1350,
+                "end": 1850,
+                "rank": 1,
+                "starts_with": "recovered by 13:49.\n\nRoot Cause\nThe direct cause was the reduced connection pool",
+                "ends_with": "ipped slightly. This retry storm is why the service stayed down instead of degra"
+              }
+            ]
+          },
+          {
+            "passage": "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+                "start": 1350,
+                "end": 1850,
+                "rank": 1,
+                "starts_with": "recovered by 13:49.\n\nRoot Cause\nThe direct cause was the reduced connection pool",
+                "ends_with": "ipped slightly. This retry storm is why the service stayed down instead of degra"
+              }
+            ]
+          },
+          {
+            "passage": "This retry storm is why the service stayed down instead of degrading gracefully.",
+            "whole_in_one_chunk": false,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+                "start": 1350,
+                "end": 1850,
+                "rank": 1,
+                "starts_with": "recovered by 13:49.\n\nRoot Cause\nThe direct cause was the reduced connection pool",
+                "ends_with": "ipped slightly. This retry storm is why the service stayed down instead of degra"
+              },
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+                "start": 1800,
+                "end": 2300,
+                "rank": 2,
+                "starts_with": "rm is why the service stayed down instead of degrading gracefully.\n\nThe configur",
+                "ends_with": "rged twice: their first payment succeeded at the payment provider after the clie"
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_plain": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_recall": 0.6666666666666666,
+          "completeness": 0.7484276729559748,
+          "complete_answer": 0.0,
+          "context_chars": 1267
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.61679,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 430,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.578663,
+            "filename": "incident_postmortem.txt",
+            "start": 1382,
+            "end": 1785,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+            "score": 0.504122,
+            "filename": "incident_postmortem.txt",
+            "start": 2029,
+            "end": 2463,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 1382,
+                "end": 1785,
+                "rank": 2,
+                "starts_with": "The direct cause was the reduced connection pool. With only 20 connections avail",
+                "ends_with": "dy saturated pool, so the queue never drained even when traffic dipped slightly."
+              }
+            ]
+          },
+          {
+            "passage": "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 1382,
+                "end": 1785,
+                "rank": 2,
+                "starts_with": "The direct cause was the reduced connection pool. With only 20 connections avail",
+                "ends_with": "dy saturated pool, so the queue never drained even when traffic dipped slightly."
+              }
+            ]
+          },
+          {
+            "passage": "This retry storm is why the service stayed down instead of degrading gracefully.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+                "start": 1786,
+                "end": 2028,
+                "rank": 5,
+                "starts_with": "This retry storm is why the service stayed down instead of degrading gracefully.",
+                "ends_with": "son who focused on the timeout value and did not notice the second line.\n\nImpact"
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.29530712610939913,
+          "sentences": [
+            {
+              "index": 15,
+              "text": "The direct cause was the reduced connection pool.",
+              "in_evidence": false,
+              "distance_to_next": 0.25551129377170745,
+              "breakpoint_after": false
+            },
+            {
+              "index": 16,
+              "text": "With only 20 connections available, most requests waited in the queue until the 10-second client timeout expired.",
+              "in_evidence": false,
+              "distance_to_next": 0.10240387463521272,
+              "breakpoint_after": false
+            },
+            {
+              "index": 17,
+              "text": "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts.",
+              "in_evidence": true,
+              "distance_to_next": 0.16114884366479099,
+              "breakpoint_after": false
+            },
+            {
+              "index": 18,
+              "text": "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly.",
+              "in_evidence": true,
+              "distance_to_next": 0.3340188572906082,
+              "breakpoint_after": true
+            },
+            {
+              "index": 19,
+              "text": "This retry storm is why the service stayed down instead of degrading gracefully.",
+              "in_evidence": true,
+              "distance_to_next": 0.14373522265965577,
+              "breakpoint_after": false
+            },
+            {
+              "index": 20,
+              "text": "The configuration file had no validation, and the change was reviewed by one person who focused on the timeout value and did not notice the second line.",
+              "in_evidence": false,
+              "distance_to_next": 0.27429131433990617,
+              "breakpoint_after": false
+            },
+            {
+              "index": 21,
+              "text": "Impact",
+              "in_evidence": false,
+              "distance_to_next": 0.40228424294551646,
+              "breakpoint_after": true
+            }
+          ]
+        }
+      },
+      "semantic": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 1494
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.631306,
+            "filename": "incident_postmortem.txt",
+            "start": 1371,
+            "end": 2020,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.626989,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 420,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+            "score": 0.507717,
+            "filename": "incident_postmortem.txt",
+            "start": 2022,
+            "end": 2447,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 1371,
+                "end": 2020,
+                "rank": 1,
+                "starts_with": "Root Cause\nThe direct cause was the reduced connection pool. With only 20 connec",
+                "ends_with": " one person who focused on the timeout value and did not notice the second line."
+              }
+            ]
+          },
+          {
+            "passage": "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 1371,
+                "end": 2020,
+                "rank": 1,
+                "starts_with": "Root Cause\nThe direct cause was the reduced connection pool. With only 20 connec",
+                "ends_with": " one person who focused on the timeout value and did not notice the second line."
+              }
+            ]
+          },
+          {
+            "passage": "This retry storm is why the service stayed down instead of degrading gracefully.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 1371,
+                "end": 2020,
+                "rank": 1,
+                "starts_with": "Root Cause\nThe direct cause was the reduced connection pool. With only 20 connec",
+                "ends_with": " one person who focused on the timeout value and did not notice the second line."
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.29530712610939913,
+          "sentences": [
+            {
+              "index": 15,
+              "text": "The direct cause was the reduced connection pool.",
+              "in_evidence": false,
+              "distance_to_next": 0.25551129377170745,
+              "breakpoint_after": false
+            },
+            {
+              "index": 16,
+              "text": "With only 20 connections available, most requests waited in the queue until the 10-second client timeout expired.",
+              "in_evidence": false,
+              "distance_to_next": 0.10240387463521272,
+              "breakpoint_after": false
+            },
+            {
+              "index": 17,
+              "text": "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts.",
+              "in_evidence": true,
+              "distance_to_next": 0.16114884366479099,
+              "breakpoint_after": false
+            },
+            {
+              "index": 18,
+              "text": "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly.",
+              "in_evidence": true,
+              "distance_to_next": 0.3340188572906082,
+              "breakpoint_after": false
+            },
+            {
+              "index": 19,
+              "text": "This retry storm is why the service stayed down instead of degrading gracefully.",
+              "in_evidence": true,
+              "distance_to_next": 0.14373522265965577,
+              "breakpoint_after": false
+            },
+            {
+              "index": 20,
+              "text": "The configuration file had no validation, and the change was reviewed by one person who focused on the timeout value and did not notice the second line.",
+              "in_evidence": false,
+              "distance_to_next": 0.27429131433990617,
+              "breakpoint_after": true
+            },
+            {
+              "index": 21,
+              "text": "Impact",
+              "in_evidence": false,
+              "distance_to_next": 0.40228424294551646,
+              "breakpoint_after": false
+            }
+          ]
+        }
+      },
+      "parent_child": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 1866
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+            "score": 0.625712,
+            "filename": "incident_postmortem.txt",
+            "start": 1546,
+            "end": 1866,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.60439,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 26,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+            "score": 0.595694,
+            "filename": "incident_postmortem.txt",
+            "start": 28,
+            "end": 420,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The checkout client then retried each failed payment immediately, up to three times, with no delay between attempts.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+                "start": 1546,
+                "end": 1866,
+                "rank": 1,
+                "starts_with": "The checkout client then retried each failed payment immediately, up to three ti",
+                "ends_with": "This retry storm is why the service stayed down instead of degrading gracefully."
+              }
+            ]
+          },
+          {
+            "passage": "Those retries tripled the load on an already saturated pool, so the queue never drained even when traffic dipped slightly.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+                "start": 1546,
+                "end": 1866,
+                "rank": 1,
+                "starts_with": "The checkout client then retried each failed payment immediately, up to three ti",
+                "ends_with": "This retry storm is why the service stayed down instead of degrading gracefully."
+              }
+            ]
+          },
+          {
+            "passage": "This retry storm is why the service stayed down instead of degrading gracefully.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_5",
+                "start": 1546,
+                "end": 1866,
+                "rank": 1,
+                "starts_with": "The checkout client then retried each failed payment immediately, up to three ti",
+                "ends_with": "This retry storm is why the service stayed down instead of degrading gracefully."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "p1",
+    "text": "What caused the checkout outage?",
+    "evidence": [
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 254,
+        "end": 420,
+        "text": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody."
+      },
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 513,
+        "end": 676,
+        "text": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20."
+      }
+    ],
+    "strategies": {
+      "fixed": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 0.5,
+          "completeness": 0.5045592705167173,
+          "complete_answer": 0.0,
+          "context_chars": 1500
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.726217,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 500,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+            "score": 0.653043,
+            "filename": "incident_postmortem.txt",
+            "start": 1350,
+            "end": 1850,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+            "score": 0.598516,
+            "filename": "incident_postmortem.txt",
+            "start": 1800,
+            "end": 2300,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+                "start": 0,
+                "end": 500,
+                "rank": 1,
+                "starts_with": "Checkout Outage Postmortem\n\nSummary\nOn 14 August 2026 the checkout service was u",
+                "ends_with": "\n\nTimeline\nAt 13:02 UTC a routine configuration change was deployed to the payme"
+              }
+            ]
+          },
+          {
+            "passage": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 450,
+                "end": 950,
+                "rank": null,
+                "starts_with": "ine configuration change was deployed to the payments service. The change was me",
+                "ends_with": "13:09. It was routed to the old payments pager rotation, which had been decommis"
+              }
+            ]
+          }
+        ]
+      },
+      "fixed_1000": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 3000
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.750874,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 1000,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+            "score": 0.657248,
+            "filename": "incident_postmortem.txt",
+            "start": 900,
+            "end": 1900,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.587762,
+            "filename": "incident_postmortem.txt",
+            "start": 1800,
+            "end": 2800,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+                "start": 0,
+                "end": 1000,
+                "rank": 1,
+                "starts_with": "Checkout Outage Postmortem\n\nSummary\nOn 14 August 2026 the checkout service was u",
+                "ends_with": "ation, which had been decommissioned in July when the team was reorganised, so n"
+              }
+            ]
+          },
+          {
+            "passage": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+                "start": 0,
+                "end": 1000,
+                "rank": 1,
+                "starts_with": "Checkout Outage Postmortem\n\nSummary\nOn 14 August 2026 the checkout service was u",
+                "ends_with": "ation, which had been decommissioned in July when the team was reorganised, so n"
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_plain": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 0.5,
+          "completeness": 0.5045592705167173,
+          "complete_answer": 0.0,
+          "context_chars": 1267
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.760003,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 430,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.627589,
+            "filename": "incident_postmortem.txt",
+            "start": 1382,
+            "end": 1785,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+            "score": 0.606648,
+            "filename": "incident_postmortem.txt",
+            "start": 2029,
+            "end": 2463,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+                "start": 0,
+                "end": 430,
+                "rank": 1,
+                "starts_with": "Checkout Outage Postmortem\n\nSummary\nOn 14 August 2026 the checkout service was u",
+                "ends_with": " was made worse by client retries and by an alert that reached nobody.\n\nTimeline"
+              }
+            ]
+          },
+          {
+            "passage": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 431,
+                "end": 1381,
+                "rank": 4,
+                "starts_with": "At 13:02 UTC a routine configuration change was deployed to the payments service",
+                "ends_with": "was rolled back at 13:44, and checkout had fully recovered by 13:49.\n\nRoot Cause"
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.29530712610939913,
+          "sentences": [
+            {
+              "index": 2,
+              "text": "On 14 August 2026 the checkout service was unavailable for 47 minutes, from 13:02 to 13:49 UTC.",
+              "in_evidence": false,
+              "distance_to_next": 0.06857657722911459,
+              "breakpoint_after": false
+            },
+            {
+              "index": 3,
+              "text": "During that time customers could browse the store and fill their baskets, but every attempt to pay failed with a timeout.",
+              "in_evidence": false,
+              "distance_to_next": 0.17949235497073557,
+              "breakpoint_after": false
+            },
+            {
+              "index": 4,
+              "text": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+              "in_evidence": true,
+              "distance_to_next": 0.230331569059798,
+              "breakpoint_after": false
+            },
+            {
+              "index": 5,
+              "text": "Timeline",
+              "in_evidence": true,
+              "distance_to_next": 0.28856928069345233,
+              "breakpoint_after": false
+            },
+            {
+              "index": 6,
+              "text": "At 13:02 UTC a routine configuration change was deployed to the payments service.",
+              "in_evidence": true,
+              "distance_to_next": 0.0979742454018111,
+              "breakpoint_after": false
+            },
+            {
+              "index": 7,
+              "text": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+              "in_evidence": true,
+              "distance_to_next": 0.10307757811626739,
+              "breakpoint_after": false
+            },
+            {
+              "index": 8,
+              "text": "Lunchtime traffic in Europe was close to its daily peak, and within two minutes requests were queueing for a free connection.",
+              "in_evidence": false,
+              "distance_to_next": 0.22850794408292896,
+              "breakpoint_after": false
+            },
+            {
+              "index": 9,
+              "text": "The first alert, for payment latency above five seconds, fired at 13:09.",
+              "in_evidence": false,
+              "distance_to_next": 0.25440632706143673,
+              "breakpoint_after": false
+            }
+          ]
+        }
+      },
+      "semantic": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 0.5,
+          "completeness": 0.5045592705167173,
+          "complete_answer": 0.0,
+          "context_chars": 1494
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.766308,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 420,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+            "score": 0.659028,
+            "filename": "incident_postmortem.txt",
+            "start": 2022,
+            "end": 2447,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.653829,
+            "filename": "incident_postmortem.txt",
+            "start": 1371,
+            "end": 2020,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+                "start": 0,
+                "end": 420,
+                "rank": 1,
+                "starts_with": "Checkout Outage Postmortem\n\nSummary\nOn 14 August 2026 the checkout service was u",
+                "ends_with": "ol, and it was made worse by client retries and by an alert that reached nobody."
+              }
+            ]
+          },
+          {
+            "passage": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 422,
+                "end": 1369,
+                "rank": 4,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": " The change was rolled back at 13:44, and checkout had fully recovered by 13:49."
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.29530712610939913,
+          "sentences": [
+            {
+              "index": 2,
+              "text": "On 14 August 2026 the checkout service was unavailable for 47 minutes, from 13:02 to 13:49 UTC.",
+              "in_evidence": false,
+              "distance_to_next": 0.06857657722911459,
+              "breakpoint_after": false
+            },
+            {
+              "index": 3,
+              "text": "During that time customers could browse the store and fill their baskets, but every attempt to pay failed with a timeout.",
+              "in_evidence": false,
+              "distance_to_next": 0.17949235497073557,
+              "breakpoint_after": false
+            },
+            {
+              "index": 4,
+              "text": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+              "in_evidence": true,
+              "distance_to_next": 0.230331569059798,
+              "breakpoint_after": true
+            },
+            {
+              "index": 5,
+              "text": "Timeline",
+              "in_evidence": true,
+              "distance_to_next": 0.28856928069345233,
+              "breakpoint_after": false
+            },
+            {
+              "index": 6,
+              "text": "At 13:02 UTC a routine configuration change was deployed to the payments service.",
+              "in_evidence": true,
+              "distance_to_next": 0.0979742454018111,
+              "breakpoint_after": false
+            },
+            {
+              "index": 7,
+              "text": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+              "in_evidence": true,
+              "distance_to_next": 0.10307757811626739,
+              "breakpoint_after": false
+            },
+            {
+              "index": 8,
+              "text": "Lunchtime traffic in Europe was close to its daily peak, and within two minutes requests were queueing for a free connection.",
+              "in_evidence": false,
+              "distance_to_next": 0.22850794408292896,
+              "breakpoint_after": false
+            },
+            {
+              "index": 9,
+              "text": "The first alert, for payment latency above five seconds, fired at 13:09.",
+              "in_evidence": false,
+              "distance_to_next": 0.25440632706143673,
+              "breakpoint_after": false
+            }
+          ]
+        }
+      },
+      "parent_child": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 3304
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+            "score": 0.709496,
+            "filename": "incident_postmortem.txt",
+            "start": 28,
+            "end": 420,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.695634,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 26,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_6",
+            "score": 0.632491,
+            "filename": "incident_postmortem.txt",
+            "start": 1868,
+            "end": 2182,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_1"
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The outage was caused by a configuration change to the payments database connection pool, and it was made worse by client retries and by an alert that reached nobody.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 28,
+                "end": 420,
+                "rank": 1,
+                "starts_with": "Summary\nOn 14 August 2026 the checkout service was unavailable for 47 minutes, f",
+                "ends_with": "ol, and it was made worse by client retries and by an alert that reached nobody."
+              }
+            ]
+          },
+          {
+            "passage": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 422,
+                "end": 802,
+                "rank": null,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": "daily peak, and within two minutes requests were queueing for a free connection."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "p2",
+    "text": "Why did the on-call engineer find out about the checkout outage so late?",
+    "evidence": [
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 804,
+        "end": 876,
+        "text": "The first alert, for payment latency above five seconds, fired at 13:09."
+      },
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 877,
+        "end": 1016,
+        "text": "It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged."
+      },
+      {
+        "document_id": "aec33e6f37e40e6f-1",
+        "start": 1017,
+        "end": 1161,
+        "text": "The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel."
+      }
+    ],
+    "strategies": {
+      "fixed": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_recall": 0.6666666666666666,
+          "completeness": 0.7323943661971831,
+          "complete_answer": 0.0,
+          "context_chars": 1500
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.60091,
+            "filename": "incident_postmortem.txt",
+            "start": 900,
+            "end": 1400,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.543042,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 500,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:6db2d8484c5f8c97-1_chunk_4",
+            "score": 0.498248,
+            "filename": "engineering_onboarding.md",
+            "start": 1800,
+            "end": 2300,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The first alert, for payment latency above five seconds, fired at 13:09.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 450,
+                "end": 950,
+                "rank": null,
+                "starts_with": "ine configuration change was deployed to the payments service. The change was me",
+                "ends_with": "13:09. It was routed to the old payments pager rotation, which had been decommis"
+              }
+            ]
+          },
+          {
+            "passage": "It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged.",
+            "whole_in_one_chunk": false,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 450,
+                "end": 950,
+                "rank": null,
+                "starts_with": "ine configuration change was deployed to the payments service. The change was me",
+                "ends_with": "13:09. It was routed to the old payments pager rotation, which had been decommis"
+              },
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 900,
+                "end": 1400,
+                "rank": 1,
+                "starts_with": "d payments pager rotation, which had been decommissioned in July when the team w",
+                "ends_with": "13:44, and checkout had fully recovered by 13:49.\n\nRoot Cause\nThe direct cause w"
+              }
+            ]
+          },
+          {
+            "passage": "The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+                "start": 900,
+                "end": 1400,
+                "rank": 1,
+                "starts_with": "d payments pager rotation, which had been decommissioned in July when the team w",
+                "ends_with": "13:44, and checkout had fully recovered by 13:49.\n\nRoot Cause\nThe direct cause w"
+              }
+            ]
+          }
+        ]
+      },
+      "structure": {
+        "metrics": {
+          "precision": 0.0,
+          "hit": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_recall": 0.0,
+          "completeness": 0.0,
+          "complete_answer": 0.0,
+          "context_chars": 1306
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.573139,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 420,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+            "score": 0.525665,
+            "filename": "incident_postmortem.txt",
+            "start": 2449,
+            "end": 2686,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.517267,
+            "filename": "incident_postmortem.txt",
+            "start": 1371,
+            "end": 2020,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The first alert, for payment latency above five seconds, fired at 13:09.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 422,
+                "end": 1369,
+                "rank": 4,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": " The change was rolled back at 13:44, and checkout had fully recovered by 13:49."
+              }
+            ]
+          },
+          {
+            "passage": "It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 422,
+                "end": 1369,
+                "rank": 4,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": " The change was rolled back at 13:44, and checkout had fully recovered by 13:49."
+              }
+            ]
+          },
+          {
+            "passage": "The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 422,
+                "end": 1369,
+                "rank": 4,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": " The change was rolled back at 13:44, and checkout had fully recovered by 13:49."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "precision": 0.0,
+          "hit": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_recall": 0.0,
+          "completeness": 0.0,
+          "complete_answer": 0.0,
+          "context_chars": 1306
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.573139,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 420,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_4",
+            "score": 0.525665,
+            "filename": "incident_postmortem.txt",
+            "start": 2449,
+            "end": 2686,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_2",
+            "score": 0.517267,
+            "filename": "incident_postmortem.txt",
+            "start": 1371,
+            "end": 2020,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The first alert, for payment latency above five seconds, fired at 13:09.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 422,
+                "end": 1369,
+                "rank": 4,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": " The change was rolled back at 13:44, and checkout had fully recovered by 13:49."
+              }
+            ]
+          },
+          {
+            "passage": "It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 422,
+                "end": 1369,
+                "rank": 4,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": " The change was rolled back at 13:44, and checkout had fully recovered by 13:49."
+              }
+            ]
+          },
+          {
+            "passage": "The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+                "start": 422,
+                "end": 1369,
+                "rank": 4,
+                "starts_with": "Timeline\nAt 13:02 UTC a routine configuration change was deployed to the payment",
+                "ends_with": " The change was rolled back at 13:44, and checkout had fully recovered by 13:49."
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.29530712610939913,
+          "sentences": [
+            {
+              "index": 7,
+              "text": "The change was meant to lower the idle timeout of database connections, but it also reduced the maximum size of the connection pool for payments-db from 200 to 20.",
+              "in_evidence": false,
+              "distance_to_next": 0.10307757811626739,
+              "breakpoint_after": false
+            },
+            {
+              "index": 8,
+              "text": "Lunchtime traffic in Europe was close to its daily peak, and within two minutes requests were queueing for a free connection.",
+              "in_evidence": false,
+              "distance_to_next": 0.22850794408292896,
+              "breakpoint_after": false
+            },
+            {
+              "index": 9,
+              "text": "The first alert, for payment latency above five seconds, fired at 13:09.",
+              "in_evidence": true,
+              "distance_to_next": 0.25440632706143673,
+              "breakpoint_after": false
+            },
+            {
+              "index": 10,
+              "text": "It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged.",
+              "in_evidence": true,
+              "distance_to_next": 0.22585371127392428,
+              "breakpoint_after": false
+            },
+            {
+              "index": 11,
+              "text": "The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel.",
+              "in_evidence": true,
+              "distance_to_next": 0.19715156163239322,
+              "breakpoint_after": false
+            },
+            {
+              "index": 12,
+              "text": "The engineer identified the connection pool change at 13:40 by comparing the deployed configuration with the previous release.",
+              "in_evidence": false,
+              "distance_to_next": 0.16960043019735138,
+              "breakpoint_after": false
+            },
+            {
+              "index": 13,
+              "text": "The change was rolled back at 13:44, and checkout had fully recovered by 13:49.",
+              "in_evidence": false,
+              "distance_to_next": 0.16120336743205488,
+              "breakpoint_after": true
+            }
+          ]
+        }
+      },
+      "parent_child": {
+        "metrics": {
+          "precision": 0.3333333333333333,
+          "hit": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_recall": 1.0,
+          "completeness": 1.0,
+          "complete_answer": 1.0,
+          "context_chars": 1866
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_0",
+            "score": 0.600368,
+            "filename": "incident_postmortem.txt",
+            "start": 0,
+            "end": 26,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+            "score": 0.540058,
+            "filename": "incident_postmortem.txt",
+            "start": 804,
+            "end": 1161,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:aec33e6f37e40e6f-1_chunk_1",
+            "score": 0.51949,
+            "filename": "incident_postmortem.txt",
+            "start": 28,
+            "end": 420,
+            "context_id": "default:aec33e6f37e40e6f-1_parent_0"
+          }
+        ],
+        "passages": [
+          {
+            "passage": "The first alert, for payment latency above five seconds, fired at 13:09.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+                "start": 804,
+                "end": 1161,
+                "rank": 2,
+                "starts_with": "The first alert, for payment latency above five seconds, fired at 13:09. It was ",
+                "ends_with": "n customer support escalated a spike in complaints through the incident channel."
+              }
+            ]
+          },
+          {
+            "passage": "It was routed to the old payments pager rotation, which had been decommissioned in July when the team was reorganised, so nobody was paged.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+                "start": 804,
+                "end": 1161,
+                "rank": 2,
+                "starts_with": "The first alert, for payment latency above five seconds, fired at 13:09. It was ",
+                "ends_with": "n customer support escalated a spike in complaints through the incident channel."
+              }
+            ]
+          },
+          {
+            "passage": "The on-call engineer only learned about the outage at 13:31, when customer support escalated a spike in complaints through the incident channel.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:aec33e6f37e40e6f-1_chunk_3",
+                "start": 804,
+                "end": 1161,
+                "rank": 2,
+                "starts_with": "The first alert, for payment latency above five seconds, fired at 13:09. It was ",
+                "ends_with": "n customer support escalated a spike in complaints through the incident channel."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "t7",
+    "text": "After the change announced in the Q3 review, where and when is the company offsite?",
+    "evidence": [
+      {
+        "document_id": "3abc2433a9cafceb-1",
+        "start": 3227,
+        "end": 3331,
+        "text": "And the company offsite is moving from Lisbon to Porto, it will now be on the 12th to the 14th of March."
+      }
+    ],
+    "strategies": {
+      "fixed": {
+        "metrics": {
+          "precision": 0.0,
+          "hit": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_recall": 0.0,
+          "completeness": 0.0,
+          "complete_answer": 0.0,
+          "context_chars": 1466
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_4",
+            "score": 0.491109,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 1800,
+            "end": 2266,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+            "score": 0.488117,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 0,
+            "end": 500,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+            "score": 0.482939,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 0,
+            "end": 500,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "And the company offsite is moving from Lisbon to Porto, it will now be on the 12th to the 14th of March.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_7",
+                "start": 3150,
+                "end": 3372,
+                "rank": 4,
+                "starts_with": "office opens in January with 20 desks, mostly for the customer success team. And",
+                "ends_with": "ow be on the 12th to the 14th of March. That's everything for today, thanks all."
+              }
+            ]
+          }
+        ]
+      },
+      "sentence": {
+        "metrics": {
+          "precision": 0.0,
+          "hit": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_recall": 0.0,
+          "completeness": 0.0,
+          "complete_answer": 0.0,
+          "context_chars": 1341
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_5",
+            "score": 0.492797,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 1797,
+            "end": 2266,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+            "score": 0.487339,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 0,
+            "end": 466,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+            "score": 0.4872,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 0,
+            "end": 406,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "And the company offsite is moving from Lisbon to Porto, it will now be on the 12th to the 14th of March.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_10",
+                "start": 3135,
+                "end": 3372,
+                "rank": 5,
+                "starts_with": "The new Lisbon office opens in January with 20 desks, mostly for the customer su",
+                "ends_with": "ow be on the 12th to the 14th of March. That's everything for today, thanks all."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "precision": 0.0,
+          "hit": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_recall": 0.0,
+          "completeness": 0.0,
+          "complete_answer": 0.0,
+          "context_chars": 1049
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_5",
+            "score": 0.636453,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 2052,
+            "end": 2266,
+            "context_id": null
+          },
+          {
+            "rank": 2,
+            "chunk_id": "default:3abc2433a9cafceb-1_chunk_0",
+            "score": 0.514443,
+            "filename": "quarterly_review_transcript.txt",
+            "start": 0,
+            "end": 679,
+            "context_id": null
+          },
+          {
+            "rank": 3,
+            "chunk_id": "default:4dc8aa41adae62d9-1_chunk_0",
+            "score": 0.481304,
+            "filename": "q2_business_review_transcript.txt",
+            "start": 0,
+            "end": 156,
+            "context_id": null
+          }
+        ],
+        "passages": [
+          {
+            "passage": "And the company offsite is moving from Lisbon to Porto, it will now be on the 12th to the 14th of March.",
+            "whole_in_one_chunk": true,
+            "chunks": [
+              {
+                "chunk_id": "default:3abc2433a9cafceb-1_chunk_6",
+                "start": 3096,
+                "end": 3372,
+                "rank": 4,
+                "starts_with": "Last topic, a couple of announcements. The new Lisbon office opens in January wi",
+                "ends_with": "ow be on the 12th to the 14th of March. That's everything for today, thanks all."
+              }
+            ]
+          }
+        ],
+        "semantic": {
+          "threshold": 0.3260411181728629,
+          "sentences": [
+            {
+              "index": 30,
+              "text": "Last topic, a couple of announcements.",
+              "in_evidence": false,
+              "distance_to_next": 0.2869387268504173,
+              "breakpoint_after": false
+            },
+            {
+              "index": 31,
+              "text": "The new Lisbon office opens in January with 20 desks, mostly for the customer success team.",
+              "in_evidence": false,
+              "distance_to_next": 0.10174490589561669,
+              "breakpoint_after": false
+            },
+            {
+              "index": 32,
+              "text": "And the company offsite is moving from Lisbon to Porto, it will now be on the 12th to the 14th of March.",
+              "in_evidence": true,
+              "distance_to_next": 0.2517644974084514,
+              "breakpoint_after": false
+            },
+            {
+              "index": 33,
+              "text": "That's everything for today, thanks all.",
+              "in_evidence": false,
+              "distance_to_next": null,
+              "breakpoint_after": false
+            }
+          ]
+        }
+      }
+    }
+  }
+]

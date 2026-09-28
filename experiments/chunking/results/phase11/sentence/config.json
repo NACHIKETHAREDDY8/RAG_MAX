@@ -1,0 +1,9 @@
+{
+  "label": "sentence",
+  "strategy": "sentence",
+  "params": {
+    "max_chars": 500,
+    "overlap_sentences": 1
+  },
+  "expand_context": false
+}

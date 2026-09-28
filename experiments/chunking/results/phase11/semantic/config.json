@@ -1,0 +1,15 @@
+{
+  "label": "semantic",
+  "strategy": "semantic",
+  "params": {
+    "buffer_size": 1,
+    "threshold_type": "percentile",
+    "breakpoint_threshold": 85.0,
+    "max_chars": 1000,
+    "min_chars": 150,
+    "batch_size": 256,
+    "respect_headings": true,
+    "keep_references": true
+  },
+  "expand_context": false
+}
